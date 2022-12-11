@@ -1,20 +1,18 @@
 package gui;
 
 import gui.ayarlar.ButtonAyarlari;
+import gui.ayarlar.IDuzenleyici;
 import gui.ayarlar.TextAyarlari;
 import java.awt.Color;
 
-public class GirisEkrani extends javax.swing.JFrame {
+public final class GirisEkrani extends javax.swing.JFrame implements IDuzenleyici {
 
     private final String KIMLIK_TEXT_ORIGINAL = "T.C. Identity / Customer ID";
-    private final String SIFRE_TEXT_ORIGINAL = "**********";
+    private final String SIFRE_TEXT_ORIGINAL = "************";
 
     public GirisEkrani() {
         initComponents();
-        this.setLocationRelativeTo(null); //ekran ortada
-        girisEkraniPanel.setFocusable(true); //fokus ayar
-        kimlikText.setText(KIMLIK_TEXT_ORIGINAL);
-        sifreText.setText(SIFRE_TEXT_ORIGINAL);
+        getEdits();
     }
 
     @SuppressWarnings("unchecked")
@@ -72,6 +70,11 @@ public class GirisEkrani extends javax.swing.JFrame {
                 basvurButtonMouseExited(evt);
             }
         });
+        basvurButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                basvurButtonActionPerformed(evt);
+            }
+        });
 
         soruLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         soruLabel.setText("Don't you have an account? ");
@@ -85,6 +88,11 @@ public class GirisEkrani extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 girisButtonMouseExited(evt);
+            }
+        });
+        girisButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                girisButtonActionPerformed(evt);
             }
         });
 
@@ -146,28 +154,31 @@ public class GirisEkrani extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    @Override
+    public void getEdits() {
+        this.setLocationRelativeTo(null); //ekran ortada
+        girisEkraniPanel.setFocusable(true); //fokus ayar
+        kimlikText.setText(KIMLIK_TEXT_ORIGINAL);
+        sifreText.setText(SIFRE_TEXT_ORIGINAL);
+        TextAyarlari.setOnlyNumber(kimlikText);
+    }
+
     private Color originalBackgroundColor;
 
     private void girisButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_girisButtonMouseEntered
-
-        //originalBackgroundColor = girisButton.getBackground(); //hover öncesi rengi al
-        //girisButton.setBackground(Color.CYAN); //hover olunca mavi yap
         ButtonAyarlari.setBg(girisButton, Color.CYAN);
     }//GEN-LAST:event_girisButtonMouseEntered
 
     private void girisButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_girisButtonMouseExited
-        //girisButton.setBackground(originalBackgroundColor); //orinal renge geri döndür
         ButtonAyarlari.setOriginalBg(girisButton);
 
     }//GEN-LAST:event_girisButtonMouseExited
 
     private void basvurButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_basvurButtonMouseEntered
-        //basvurButton.setBackground(Color.CYAN);
         ButtonAyarlari.setBg(basvurButton, Color.CYAN);
     }//GEN-LAST:event_basvurButtonMouseEntered
 
     private void basvurButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_basvurButtonMouseExited
-        //basvurButton.setBackground(originalBackgroundColor);
         ButtonAyarlari.setOriginalBg(basvurButton);
     }//GEN-LAST:event_basvurButtonMouseExited
 
@@ -187,8 +198,17 @@ public class GirisEkrani extends javax.swing.JFrame {
         TextAyarlari.checkTheTextFocusLost(sifreText);
     }//GEN-LAST:event_sifreTextFocusLost
 
+    private void girisButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_girisButtonActionPerformed
+
+    }//GEN-LAST:event_girisButtonActionPerformed
+
+    private void basvurButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_basvurButtonActionPerformed
+        this.setVisible(false); //giris ekranını kapat
+        new BasvuruEkrani().setVisible(true); //başvuru ekranına git
+    }//GEN-LAST:event_basvurButtonActionPerformed
+
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
+        
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -211,7 +231,7 @@ public class GirisEkrani extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new GirisEkrani().setVisible(true);

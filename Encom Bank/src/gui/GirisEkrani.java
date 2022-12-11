@@ -32,11 +32,11 @@ public final class GirisEkrani extends javax.swing.JFrame implements IDuzenleyic
 
         girisEkraniPanel.setBackground(new java.awt.Color(153, 204, 255));
 
-        hosgeldinizLabel.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        hosgeldinizLabel.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         hosgeldinizLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         hosgeldinizLabel.setText("Welcome to Encom Bank");
 
-        kimlikText.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        kimlikText.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         kimlikText.setForeground(new java.awt.Color(153, 153, 153));
         kimlikText.setToolTipText("");
         kimlikText.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -48,7 +48,7 @@ public final class GirisEkrani extends javax.swing.JFrame implements IDuzenleyic
             }
         });
 
-        sifreText.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        sifreText.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         sifreText.setForeground(new java.awt.Color(153, 153, 153));
         sifreText.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -76,7 +76,7 @@ public final class GirisEkrani extends javax.swing.JFrame implements IDuzenleyic
             }
         });
 
-        soruLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        soruLabel.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         soruLabel.setText("Don't you have an account? ");
 
         girisButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N

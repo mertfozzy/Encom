@@ -29,7 +29,6 @@ public class BasvuruEkrani extends javax.swing.JFrame {
 
         basvuruEkraniPanel = new javax.swing.JPanel();
         adSoyadLabel = new javax.swing.JLabel();
-        guvenlikBilgileriLabel = new javax.swing.JLabel();
         adSoyadText = new javax.swing.JTextField();
         tcNoLabel = new javax.swing.JLabel();
         tcNoText = new javax.swing.JTextField();
@@ -38,6 +37,9 @@ public class BasvuruEkrani extends javax.swing.JFrame {
         kisiselBilgilerLabel1 = new javax.swing.JLabel();
         guvenlikSorusuLabel = new javax.swing.JLabel();
         guvenlikSorusu = new javax.swing.JComboBox();
+        guvenlikCevapLabel = new javax.swing.JLabel();
+        guvenlikCevapText = new javax.swing.JTextField();
+        basvurButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Encom Bank Register Page");
@@ -45,97 +47,115 @@ public class BasvuruEkrani extends javax.swing.JFrame {
 
         basvuruEkraniPanel.setBackground(new java.awt.Color(153, 204, 255));
 
-        adSoyadLabel.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        adSoyadLabel.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
         adSoyadLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         adSoyadLabel.setText("Name & Surname :");
 
-        guvenlikBilgileriLabel.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        guvenlikBilgileriLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        guvenlikBilgileriLabel.setText("Security Informations");
+        adSoyadText.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
 
-        adSoyadText.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-
-        tcNoLabel.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        tcNoLabel.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
         tcNoLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         tcNoLabel.setText("TC Identity :");
 
-        tcNoText.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        tcNoText.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
 
-        telNoText.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        telNoText.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
 
-        telNoLabel.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        telNoLabel.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
         telNoLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         telNoLabel.setText("Phone Number :");
 
-        kisiselBilgilerLabel1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        kisiselBilgilerLabel1.setFont(new java.awt.Font("Calibri", 1, 22)); // NOI18N
         kisiselBilgilerLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         kisiselBilgilerLabel1.setText("Personal Informations");
 
-        guvenlikSorusuLabel.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        guvenlikSorusuLabel.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
         guvenlikSorusuLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         guvenlikSorusuLabel.setText("Security Question :");
 
-        guvenlikSorusu.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        guvenlikSorusu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        guvenlikSorusu.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        guvenlikSorusu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "What is your pet's name?", "What is your favorite object?", "Who is your favorite superhero?", "Where do you want to live?" }));
+
+        guvenlikCevapLabel.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
+        guvenlikCevapLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        guvenlikCevapLabel.setText("Answer :");
+
+        guvenlikCevapText.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+
+        basvurButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        basvurButton.setText("Register");
+        basvurButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout basvuruEkraniPanelLayout = new javax.swing.GroupLayout(basvuruEkraniPanel);
         basvuruEkraniPanel.setLayout(basvuruEkraniPanelLayout);
         basvuruEkraniPanelLayout.setHorizontalGroup(
             basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(basvuruEkraniPanelLayout.createSequentialGroup()
-                .addGap(230, 230, 230)
+                .addGap(233, 233, 233)
                 .addComponent(kisiselBilgilerLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, basvuruEkraniPanelLayout.createSequentialGroup()
-                .addContainerGap(154, Short.MAX_VALUE)
+                .addContainerGap(132, Short.MAX_VALUE)
                 .addGroup(basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, basvuruEkraniPanelLayout.createSequentialGroup()
-                        .addComponent(guvenlikBilgileriLabel)
-                        .addGap(228, 228, 228))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, basvuruEkraniPanelLayout.createSequentialGroup()
-                        .addGroup(basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(basvuruEkraniPanelLayout.createSequentialGroup()
+                                .addGap(2, 2, 2)
                                 .addGroup(basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(adSoyadLabel)
-                                    .addComponent(tcNoLabel))
-                                .addGap(18, 18, 18)
-                                .addGroup(basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(tcNoText, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
-                                    .addComponent(adSoyadText)))
-                            .addGroup(basvuruEkraniPanelLayout.createSequentialGroup()
-                                .addComponent(telNoLabel)
-                                .addGap(18, 18, 18)
-                                .addComponent(telNoText, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(basvuruEkraniPanelLayout.createSequentialGroup()
-                                .addComponent(guvenlikSorusuLabel)
-                                .addGap(18, 18, 18)
-                                .addComponent(guvenlikSorusu, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(134, 134, 134))))
+                                    .addGroup(basvuruEkraniPanelLayout.createSequentialGroup()
+                                        .addGroup(basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(adSoyadLabel)
+                                            .addComponent(tcNoLabel))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(tcNoText)
+                                            .addComponent(adSoyadText, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(basvuruEkraniPanelLayout.createSequentialGroup()
+                                        .addComponent(telNoLabel)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(telNoText, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(basvuruEkraniPanelLayout.createSequentialGroup()
+                                    .addComponent(guvenlikSorusuLabel)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(guvenlikSorusu, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(basvuruEkraniPanelLayout.createSequentialGroup()
+                                    .addComponent(guvenlikCevapLabel)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(guvenlikCevapText, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(180, 180, 180))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, basvuruEkraniPanelLayout.createSequentialGroup()
+                        .addComponent(basvurButton, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(285, 285, 285))))
         );
         basvuruEkraniPanelLayout.setVerticalGroup(
             basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(basvuruEkraniPanelLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(kisiselBilgilerLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(kisiselBilgilerLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(adSoyadLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(adSoyadText, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(adSoyadText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
                 .addGroup(basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tcNoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tcNoText, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(telNoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(telNoText, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
-                .addComponent(guvenlikBilgileriLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guvenlikSorusuLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(guvenlikSorusu, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(guvenlikCevapLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(guvenlikCevapText, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(basvurButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
 
         basvuruEkraniPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {adSoyadLabel, adSoyadText});
@@ -144,7 +164,9 @@ public class BasvuruEkrani extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(basvuruEkraniPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(basvuruEkraniPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,8 +214,10 @@ public class BasvuruEkrani extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel adSoyadLabel;
     private javax.swing.JTextField adSoyadText;
+    private javax.swing.JButton basvurButton;
     private javax.swing.JPanel basvuruEkraniPanel;
-    private javax.swing.JLabel guvenlikBilgileriLabel;
+    private javax.swing.JLabel guvenlikCevapLabel;
+    private javax.swing.JTextField guvenlikCevapText;
     private javax.swing.JComboBox guvenlikSorusu;
     private javax.swing.JLabel guvenlikSorusuLabel;
     private javax.swing.JLabel kisiselBilgilerLabel1;

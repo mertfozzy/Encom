@@ -27,18 +27,132 @@ public class HesapEkrani extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        hosgeldinLabel = new javax.swing.JLabel();
+        kullaniciAdSoyadLabel = new javax.swing.JLabel();
+        dollarIcon = new javax.swing.JLabel();
+        bakiyeLabel = new javax.swing.JLabel();
+        paraCekIcon = new javax.swing.JLabel();
+        paraCekButton = new javax.swing.JButton();
+        paraYatirIcon = new javax.swing.JLabel();
+        paraYatirButton = new javax.swing.JButton();
+        odemelerIcon = new javax.swing.JLabel();
+        havaleButton = new javax.swing.JButton();
+        odemelerButton = new javax.swing.JButton();
+        havaleIcon = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("EncomBank Hesap Ekranı");
+
+        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
+
+        hosgeldinLabel.setFont(new java.awt.Font("Calibri", 1, 28)); // NOI18N
+        hosgeldinLabel.setText("Welcome;");
+
+        kullaniciAdSoyadLabel.setFont(new java.awt.Font("Calibri", 3, 32)); // NOI18N
+        kullaniciAdSoyadLabel.setText("(KULLANICI AD SOYAD)");
+
+        dollarIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/dollarIcon.png"))); // NOI18N
+
+        bakiyeLabel.setFont(new java.awt.Font("Calibri", 1, 54)); // NOI18N
+        bakiyeLabel.setText("BAKİYE");
+
+        paraCekIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/withdrawIcon.png"))); // NOI18N
+
+        paraCekButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        paraCekButton.setText("Withdraw");
+
+        paraYatirIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/depositIcon.png"))); // NOI18N
+
+        paraYatirButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        paraYatirButton.setText("Deposit");
+
+        odemelerIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/paymentIcon.png"))); // NOI18N
+
+        havaleButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        havaleButton.setText("Transfer");
+
+        odemelerButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        odemelerButton.setText("Payments");
+
+        havaleIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/transferIcon.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(118, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(kullaniciAdSoyadLabel)
+                            .addComponent(hosgeldinLabel))
+                        .addGap(265, 265, 265))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(dollarIcon)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bakiyeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(paraCekIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(paraCekButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(51, 51, 51)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(paraYatirIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(paraYatirButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(51, 51, 51)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(havaleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(havaleIcon))
+                        .addGap(43, 43, 43)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(odemelerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(odemelerIcon))
+                        .addGap(104, 104, 104))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(hosgeldinLabel)
+                .addGap(18, 18, 18)
+                .addComponent(kullaniciAdSoyadLabel)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(bakiyeLabel)
+                    .addComponent(dollarIcon))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(odemelerIcon)
+                        .addGap(7, 7, 7)
+                        .addComponent(odemelerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(havaleIcon)
+                        .addGap(7, 7, 7)
+                        .addComponent(havaleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(paraYatirIcon)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(paraYatirButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(paraCekIcon)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(paraCekButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(78, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 767, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 591, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -80,5 +194,18 @@ public class HesapEkrani extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bakiyeLabel;
+    private javax.swing.JLabel dollarIcon;
+    private javax.swing.JButton havaleButton;
+    private javax.swing.JLabel havaleIcon;
+    private javax.swing.JLabel hosgeldinLabel;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel kullaniciAdSoyadLabel;
+    private javax.swing.JButton odemelerButton;
+    private javax.swing.JLabel odemelerIcon;
+    private javax.swing.JButton paraCekButton;
+    private javax.swing.JLabel paraCekIcon;
+    private javax.swing.JButton paraYatirButton;
+    private javax.swing.JLabel paraYatirIcon;
     // End of variables declaration//GEN-END:variables
 }

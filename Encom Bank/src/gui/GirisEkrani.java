@@ -1,5 +1,6 @@
 package gui;
 
+import gui.ayarlar.ActionAyarlari;
 import gui.ayarlar.ButtonAyarlari;
 import gui.ayarlar.IDuzenleyici;
 import gui.ayarlar.TextAyarlari;
@@ -204,8 +205,11 @@ public final class GirisEkrani extends javax.swing.JFrame implements IDuzenleyic
     }//GEN-LAST:event_girisButtonActionPerformed
 
     private void basvurButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_basvurButtonActionPerformed
+        /*
         this.setVisible(false); //giris ekranını kapat
         new BasvuruEkrani().setVisible(true); //başvuru ekranına git
+        */
+        ActionAyarlari.setVisible(this, new BasvuruEkrani());
     }//GEN-LAST:event_basvurButtonActionPerformed
 
     public static void main(String args[]) {

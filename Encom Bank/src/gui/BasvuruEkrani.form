@@ -62,49 +62,44 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="120" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
                                           <Group type="103" groupAlignment="1" attributes="0">
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Group type="103" groupAlignment="1" attributes="0">
-                                                      <Component id="adSoyadLabel" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="tcNoLabel" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="tcNoText" max="32767" attributes="0"/>
-                                                      <Component id="adSoyadText" min="-2" pref="224" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="telNoLabel" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="telNoText" min="-2" pref="224" max="-2" attributes="0"/>
-                                              </Group>
+                                              <Component id="adSoyadLabel" min="-2" max="-2" attributes="0"/>
+                                              <Component id="tcNoLabel" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="tcNoText" max="32767" attributes="0"/>
+                                              <Component id="adSoyadText" min="-2" pref="224" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="guvenlikSorusuLabel" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="guvenlikSorusu" min="-2" pref="224" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="guvenlikCevapLabel" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="guvenlikCevapText" min="-2" pref="224" max="-2" attributes="0"/>
-                                          </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="telNoLabel" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="telNoText" min="-2" pref="224" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="basvurButton" min="-2" pref="104" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="285" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="guvenlikSorusuLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="guvenlikSorusu" min="-2" pref="224" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="guvenlikCevapLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="basvurButton" min="-2" pref="104" max="-2" attributes="0"/>
+                                          <Component id="guvenlikCevapText" min="-2" pref="224" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                           </Group>
+                          <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -261,6 +256,11 @@
               <Color id="Hand Cursor"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="basvurButtonMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="basvurButtonMouseExited"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="basvurButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="backButton">
           <Properties>

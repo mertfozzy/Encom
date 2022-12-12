@@ -161,6 +161,8 @@ public final class GirisEkrani extends javax.swing.JFrame implements IDuzenleyic
         kimlikText.setText(KIMLIK_TEXT_ORIGINAL);
         sifreText.setText(SIFRE_TEXT_ORIGINAL);
         TextAyarlari.setOnlyNumber(kimlikText);
+        //TextAyarlari.setMaxLimit(kimlikText, 11);
+        
     }
 
     private Color originalBackgroundColor;
@@ -171,7 +173,6 @@ public final class GirisEkrani extends javax.swing.JFrame implements IDuzenleyic
 
     private void girisButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_girisButtonMouseExited
         ButtonAyarlari.setOriginalBg(girisButton);
-
     }//GEN-LAST:event_girisButtonMouseExited
 
     private void basvurButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_basvurButtonMouseEntered
@@ -208,7 +209,7 @@ public final class GirisEkrani extends javax.swing.JFrame implements IDuzenleyic
     }//GEN-LAST:event_basvurButtonActionPerformed
 
     public static void main(String args[]) {
-        
+
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -231,7 +232,6 @@ public final class GirisEkrani extends javax.swing.JFrame implements IDuzenleyic
         }
         //</editor-fold>
 
-        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new GirisEkrani().setVisible(true);

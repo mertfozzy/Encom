@@ -1,8 +1,10 @@
 
 package gui;
 
+import gui.ayarlar.ActionAyarlari;
 import gui.ayarlar.ButtonAyarlari;
 import gui.ayarlar.IDuzenleyici;
+import gui.ayarlar.IconAyarlari;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JButton;
@@ -42,7 +44,7 @@ public class HesapEkrani extends javax.swing.JFrame implements IDuzenleyici{
         logoutIcon = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("EncomBank Hesap Ekranı");
+        setTitle("Account View - EncomBank");
 
         hesapEkraniPanel.setBackground(new java.awt.Color(153, 204, 255));
         hesapEkraniPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -76,6 +78,11 @@ public class HesapEkrani extends javax.swing.JFrame implements IDuzenleyici{
                 paraCekButtonMouseExited(evt);
             }
         });
+        paraCekButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paraCekButtonActionPerformed(evt);
+            }
+        });
         hesapEkraniPanel.add(paraCekButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 450, 125, 38));
 
         paraYatirIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/depositIcon.png"))); // NOI18N
@@ -90,6 +97,11 @@ public class HesapEkrani extends javax.swing.JFrame implements IDuzenleyici{
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 paraYatirButtonMouseExited(evt);
+            }
+        });
+        paraYatirButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paraYatirButtonActionPerformed(evt);
             }
         });
         hesapEkraniPanel.add(paraYatirButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(294, 450, 125, 38));
@@ -108,6 +120,11 @@ public class HesapEkrani extends javax.swing.JFrame implements IDuzenleyici{
                 havaleButtonMouseExited(evt);
             }
         });
+        havaleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                havaleButtonActionPerformed(evt);
+            }
+        });
         hesapEkraniPanel.add(havaleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 450, 125, 38));
 
         odemelerButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -121,15 +138,30 @@ public class HesapEkrani extends javax.swing.JFrame implements IDuzenleyici{
                 odemelerButtonMouseExited(evt);
             }
         });
+        odemelerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                odemelerButtonActionPerformed(evt);
+            }
+        });
         hesapEkraniPanel.add(odemelerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(638, 450, 125, 38));
 
         havaleIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/transferIcon.png"))); // NOI18N
         hesapEkraniPanel.add(havaleIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 318, -1, -1));
 
         settingsIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/ayarlarIcon.png"))); // NOI18N
+        settingsIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                settingsIconMouseClicked(evt);
+            }
+        });
         hesapEkraniPanel.add(settingsIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 30, -1, -1));
 
         logoutIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/logoutIcon.png"))); // NOI18N
+        logoutIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutIconMouseClicked(evt);
+            }
+        });
         hesapEkraniPanel.add(logoutIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -148,35 +180,67 @@ public class HesapEkrani extends javax.swing.JFrame implements IDuzenleyici{
 
     private void paraCekButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paraCekButtonMouseEntered
         this.setBgFg(evt.getComponent());
+        IconAyarlari.changeIcon(paraCekIcon, "withdrawIcon2");
     }//GEN-LAST:event_paraCekButtonMouseEntered
 
     private void paraCekButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paraCekButtonMouseExited
         this.setOriginalBgFg(evt.getComponent());
+        IconAyarlari.setOriginalIcon(paraCekIcon);
     }//GEN-LAST:event_paraCekButtonMouseExited
 
     private void paraYatirButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paraYatirButtonMouseEntered
         this.setBgFg(evt.getComponent());
+        IconAyarlari.changeIcon(paraYatirIcon, "depositIcon2");
     }//GEN-LAST:event_paraYatirButtonMouseEntered
 
     private void paraYatirButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paraYatirButtonMouseExited
         this.setOriginalBgFg(evt.getComponent());
+        IconAyarlari.setOriginalIcon(paraYatirIcon);
     }//GEN-LAST:event_paraYatirButtonMouseExited
 
     private void havaleButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_havaleButtonMouseEntered
         this.setBgFg(evt.getComponent());
+        IconAyarlari.changeIcon(havaleIcon, "transferIcon2");
     }//GEN-LAST:event_havaleButtonMouseEntered
 
     private void havaleButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_havaleButtonMouseExited
         this.setOriginalBgFg(evt.getComponent());
+        IconAyarlari.setOriginalIcon(havaleIcon);
     }//GEN-LAST:event_havaleButtonMouseExited
 
     private void odemelerButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_odemelerButtonMouseEntered
         this.setBgFg(evt.getComponent());
+        IconAyarlari.changeIcon(odemelerIcon, "paymentIcon2");
     }//GEN-LAST:event_odemelerButtonMouseEntered
 
     private void odemelerButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_odemelerButtonMouseExited
         this.setOriginalBgFg(evt.getComponent());
+        IconAyarlari.setOriginalIcon(odemelerIcon);
     }//GEN-LAST:event_odemelerButtonMouseExited
+
+    private void paraCekButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paraCekButtonActionPerformed
+        ActionAyarlari.setVisible(this, new ParaCekmeEkrani());
+    }//GEN-LAST:event_paraCekButtonActionPerformed
+
+    private void paraYatirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paraYatirButtonActionPerformed
+        ActionAyarlari.setVisible(this, new ParaYatirmaEkrani());
+    }//GEN-LAST:event_paraYatirButtonActionPerformed
+
+    private void havaleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_havaleButtonActionPerformed
+        ActionAyarlari.setVisible(this, new HavaleEkrani());
+    }//GEN-LAST:event_havaleButtonActionPerformed
+
+    private void odemelerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_odemelerButtonActionPerformed
+        ActionAyarlari.setVisible(this, new OdemelerEkrani());
+    }//GEN-LAST:event_odemelerButtonActionPerformed
+
+    private void logoutIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutIconMouseClicked
+        ActionAyarlari.setVisible(this, new GirisEkrani());
+    }//GEN-LAST:event_logoutIconMouseClicked
+
+    private void settingsIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsIconMouseClicked
+        ActionAyarlari.setVisible(this, new AyarlarEkrani());
+    }//GEN-LAST:event_settingsIconMouseClicked
 
     private void setBgFg(Component c){
         ButtonAyarlari.setBgFg((JButton)c, Color.BLACK, Color.WHITE);

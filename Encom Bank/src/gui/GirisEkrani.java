@@ -31,7 +31,7 @@ public final class GirisEkrani extends javax.swing.JFrame implements IDuzenleyic
         girisButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Encom Bank Login Page");
+        setTitle("Login - EncomBank");
 
         girisEkraniPanel.setBackground(new java.awt.Color(153, 204, 255));
 

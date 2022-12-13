@@ -53,7 +53,7 @@ public class BasvuruEkrani extends javax.swing.JFrame implements IDuzenleyici{
         backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Encom Bank Register Page");
+        setTitle("Register - EncomBank");
         setPreferredSize(new java.awt.Dimension(684, 414));
 
         basvuruEkraniPanel.setBackground(new java.awt.Color(153, 204, 255));

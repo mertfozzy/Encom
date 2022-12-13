@@ -10,6 +10,8 @@ import gui.ayarlar.ButtonAyarlari;
 import gui.ayarlar.IDuzenleyici;
 import gui.ayarlar.TextAyarlari;
 import java.awt.Color;
+import java.awt.Component;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 /**
@@ -218,13 +220,21 @@ public class BasvuruEkrani extends javax.swing.JFrame implements IDuzenleyici{
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void basvurButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_basvurButtonMouseEntered
-        ButtonAyarlari.setBg(basvurButton, Color.cyan);
+        this.setBgFg(evt.getComponent());
     }//GEN-LAST:event_basvurButtonMouseEntered
 
     private void basvurButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_basvurButtonMouseExited
-        ButtonAyarlari.setOriginalBg(basvurButton);
+        this.setOriginalBgFg(evt.getComponent());
     }//GEN-LAST:event_basvurButtonMouseExited
 
+    private void setBgFg(Component c){
+        ButtonAyarlari.setBgFg((JButton)c, Color.BLACK, Color.WHITE);
+    }
+    
+    private void setOriginalBgFg(Component c){
+        ButtonAyarlari.setOriginalBgFg((JButton)c);
+    }
+    
     private void basvurButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_basvurButtonActionPerformed
         JOptionPane.showMessageDialog(this, "Your registration has been accepted.");
         ActionAyarlari.setVisible(this, new GirisEkrani()); //dialogdan sonra anasayfaya dön

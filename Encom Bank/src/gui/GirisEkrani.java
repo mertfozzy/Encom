@@ -5,6 +5,8 @@ import gui.ayarlar.ButtonAyarlari;
 import gui.ayarlar.IDuzenleyici;
 import gui.ayarlar.TextAyarlari;
 import java.awt.Color;
+import java.awt.Component;
+import javax.swing.JButton;
 
 public final class GirisEkrani extends javax.swing.JFrame implements IDuzenleyici {
 
@@ -169,21 +171,31 @@ public final class GirisEkrani extends javax.swing.JFrame implements IDuzenleyic
     private Color originalBackgroundColor;
 
     private void girisButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_girisButtonMouseEntered
-        ButtonAyarlari.setBg(girisButton, Color.CYAN);
+        this.setBgFg(evt.getComponent());
     }//GEN-LAST:event_girisButtonMouseEntered
 
     private void girisButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_girisButtonMouseExited
-        ButtonAyarlari.setOriginalBg(girisButton);
+        this.setOriginalBgFg(evt.getComponent());
     }//GEN-LAST:event_girisButtonMouseExited
 
     private void basvurButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_basvurButtonMouseEntered
-        ButtonAyarlari.setBg(basvurButton, Color.CYAN);
+        this.setBgFg(evt.getComponent());
     }//GEN-LAST:event_basvurButtonMouseEntered
 
     private void basvurButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_basvurButtonMouseExited
-        ButtonAyarlari.setOriginalBg(basvurButton);
+        this.setOriginalBgFg(evt.getComponent());
     }//GEN-LAST:event_basvurButtonMouseExited
 
+    
+    private void setBgFg(Component c){
+        ButtonAyarlari.setBgFg((JButton)c, Color.BLACK, Color.WHITE);
+    }
+    
+    private void setOriginalBgFg(Component c){
+        ButtonAyarlari.setOriginalBgFg((JButton)c);
+    }
+    
+    
     private void kimlikTextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_kimlikTextFocusGained
         TextAyarlari.checkTheTextFocusGained(kimlikText, KIMLIK_TEXT_ORIGINAL);
     }//GEN-LAST:event_kimlikTextFocusGained
@@ -201,7 +213,7 @@ public final class GirisEkrani extends javax.swing.JFrame implements IDuzenleyic
     }//GEN-LAST:event_sifreTextFocusLost
 
     private void girisButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_girisButtonActionPerformed
-
+       ActionAyarlari.setVisible(this, new HesapEkrani());
     }//GEN-LAST:event_girisButtonActionPerformed
 
     private void basvurButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_basvurButtonActionPerformed

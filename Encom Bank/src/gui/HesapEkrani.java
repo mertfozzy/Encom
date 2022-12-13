@@ -1,21 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package gui;
 
-/**
- *
- * @author mert.altuntas
- */
-public class HesapEkrani extends javax.swing.JFrame {
+import gui.ayarlar.ButtonAyarlari;
+import gui.ayarlar.IDuzenleyici;
+import java.awt.Color;
+import java.awt.Component;
+import javax.swing.JButton;
 
-    /**
-     * Creates new form HesapEkrani
-     */
+
+public class HesapEkrani extends javax.swing.JFrame implements IDuzenleyici{
+
+    
     public HesapEkrani() {
         initComponents();
+        getEdits();
     }
 
     /**
@@ -27,7 +25,7 @@ public class HesapEkrani extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        hesapEkraniPanel = new javax.swing.JPanel();
         hosgeldinLabel = new javax.swing.JLabel();
         kullaniciAdSoyadLabel = new javax.swing.JLabel();
         dollarIcon = new javax.swing.JLabel();
@@ -40,127 +38,167 @@ public class HesapEkrani extends javax.swing.JFrame {
         havaleButton = new javax.swing.JButton();
         odemelerButton = new javax.swing.JButton();
         havaleIcon = new javax.swing.JLabel();
+        settingsIcon = new javax.swing.JLabel();
+        logoutIcon = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("EncomBank Hesap Ekranı");
 
-        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
+        hesapEkraniPanel.setBackground(new java.awt.Color(153, 204, 255));
+        hesapEkraniPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         hosgeldinLabel.setFont(new java.awt.Font("Calibri", 1, 28)); // NOI18N
         hosgeldinLabel.setText("Welcome;");
+        hesapEkraniPanel.add(hosgeldinLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(389, 28, -1, -1));
 
         kullaniciAdSoyadLabel.setFont(new java.awt.Font("Calibri", 3, 32)); // NOI18N
         kullaniciAdSoyadLabel.setText("(KULLANICI AD SOYAD)");
+        hesapEkraniPanel.add(kullaniciAdSoyadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 82, -1, -1));
 
         dollarIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/dollarIcon.png"))); // NOI18N
+        hesapEkraniPanel.add(dollarIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(256, 140, -1, -1));
 
         bakiyeLabel.setFont(new java.awt.Font("Calibri", 1, 54)); // NOI18N
         bakiyeLabel.setText("BAKİYE");
+        hesapEkraniPanel.add(bakiyeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(423, 186, 400, -1));
 
         paraCekIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/withdrawIcon.png"))); // NOI18N
+        hesapEkraniPanel.add(paraCekIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 318, -1, -1));
 
         paraCekButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         paraCekButton.setText("Withdraw");
+        paraCekButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        paraCekButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                paraCekButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                paraCekButtonMouseExited(evt);
+            }
+        });
+        hesapEkraniPanel.add(paraCekButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 450, 125, 38));
 
         paraYatirIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/depositIcon.png"))); // NOI18N
+        hesapEkraniPanel.add(paraYatirIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(294, 318, -1, -1));
 
         paraYatirButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         paraYatirButton.setText("Deposit");
+        paraYatirButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        paraYatirButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                paraYatirButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                paraYatirButtonMouseExited(evt);
+            }
+        });
+        hesapEkraniPanel.add(paraYatirButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(294, 450, 125, 38));
 
         odemelerIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/paymentIcon.png"))); // NOI18N
+        hesapEkraniPanel.add(odemelerIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(638, 318, -1, -1));
 
         havaleButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         havaleButton.setText("Transfer");
+        havaleButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        havaleButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                havaleButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                havaleButtonMouseExited(evt);
+            }
+        });
+        hesapEkraniPanel.add(havaleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 450, 125, 38));
 
         odemelerButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         odemelerButton.setText("Payments");
+        odemelerButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        odemelerButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                odemelerButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                odemelerButtonMouseExited(evt);
+            }
+        });
+        hesapEkraniPanel.add(odemelerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(638, 450, 125, 38));
 
         havaleIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/transferIcon.png"))); // NOI18N
+        hesapEkraniPanel.add(havaleIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 318, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(118, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(kullaniciAdSoyadLabel)
-                            .addComponent(hosgeldinLabel))
-                        .addGap(265, 265, 265))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(dollarIcon)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bakiyeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(paraCekIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(paraCekButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(51, 51, 51)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(paraYatirIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(paraYatirButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(51, 51, 51)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(havaleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(havaleIcon))
-                        .addGap(43, 43, 43)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(odemelerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(odemelerIcon))
-                        .addGap(104, 104, 104))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(hosgeldinLabel)
-                .addGap(18, 18, 18)
-                .addComponent(kullaniciAdSoyadLabel)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(bakiyeLabel)
-                    .addComponent(dollarIcon))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(odemelerIcon)
-                        .addGap(7, 7, 7)
-                        .addComponent(odemelerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(havaleIcon)
-                        .addGap(7, 7, 7)
-                        .addComponent(havaleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(paraYatirIcon)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(paraYatirButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(paraCekIcon)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(paraCekButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(78, Short.MAX_VALUE))
-        );
+        settingsIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/ayarlarIcon.png"))); // NOI18N
+        hesapEkraniPanel.add(settingsIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 30, -1, -1));
+
+        logoutIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/logoutIcon.png"))); // NOI18N
+        hesapEkraniPanel.add(logoutIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(hesapEkraniPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 889, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(hesapEkraniPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void paraCekButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paraCekButtonMouseEntered
+        this.setBgFg(evt.getComponent());
+    }//GEN-LAST:event_paraCekButtonMouseEntered
+
+    private void paraCekButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paraCekButtonMouseExited
+        this.setOriginalBgFg(evt.getComponent());
+    }//GEN-LAST:event_paraCekButtonMouseExited
+
+    private void paraYatirButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paraYatirButtonMouseEntered
+        this.setBgFg(evt.getComponent());
+    }//GEN-LAST:event_paraYatirButtonMouseEntered
+
+    private void paraYatirButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paraYatirButtonMouseExited
+        this.setOriginalBgFg(evt.getComponent());
+    }//GEN-LAST:event_paraYatirButtonMouseExited
+
+    private void havaleButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_havaleButtonMouseEntered
+        this.setBgFg(evt.getComponent());
+    }//GEN-LAST:event_havaleButtonMouseEntered
+
+    private void havaleButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_havaleButtonMouseExited
+        this.setOriginalBgFg(evt.getComponent());
+    }//GEN-LAST:event_havaleButtonMouseExited
+
+    private void odemelerButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_odemelerButtonMouseEntered
+        this.setBgFg(evt.getComponent());
+    }//GEN-LAST:event_odemelerButtonMouseEntered
+
+    private void odemelerButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_odemelerButtonMouseExited
+        this.setOriginalBgFg(evt.getComponent());
+    }//GEN-LAST:event_odemelerButtonMouseExited
+
+    private void setBgFg(Component c){
+        ButtonAyarlari.setBgFg((JButton)c, Color.BLACK, Color.WHITE);
+    }
+    
+    private void setOriginalBgFg(Component c){
+        ButtonAyarlari.setOriginalBgFg((JButton)c);
+    }
+    
+    @Override
+    public void getEdits() {
+        this.setLocationRelativeTo(null); //ekran ortada
+        hesapEkraniPanel.setFocusable(true);
+    }
+
+    
+    
     /**
      * @param args the command line arguments
      */
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -198,14 +236,16 @@ public class HesapEkrani extends javax.swing.JFrame {
     private javax.swing.JLabel dollarIcon;
     private javax.swing.JButton havaleButton;
     private javax.swing.JLabel havaleIcon;
+    private javax.swing.JPanel hesapEkraniPanel;
     private javax.swing.JLabel hosgeldinLabel;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel kullaniciAdSoyadLabel;
+    private javax.swing.JLabel logoutIcon;
     private javax.swing.JButton odemelerButton;
     private javax.swing.JLabel odemelerIcon;
     private javax.swing.JButton paraCekButton;
     private javax.swing.JLabel paraCekIcon;
     private javax.swing.JButton paraYatirButton;
     private javax.swing.JLabel paraYatirIcon;
+    private javax.swing.JLabel settingsIcon;
     // End of variables declaration//GEN-END:variables
 }

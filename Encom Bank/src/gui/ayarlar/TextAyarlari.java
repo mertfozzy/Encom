@@ -77,5 +77,20 @@ public class TextAyarlari {
             
         });
     }
+        
+    public static int checkTheKeyReleased(JTextField textField, int moneyLimit) {
+                //kullanıcı 9999 girerse 5000 yap
+        String text = textField.getText();
+        if(!text.equals("")){
+           int amount = Integer.valueOf(text);
+           if(amount > moneyLimit){
+               amount = moneyLimit;
+               textField.setText(String.valueOf(amount));
+           }
+           return amount;
+        }
+        return 0;
+    }
+    
     
 }

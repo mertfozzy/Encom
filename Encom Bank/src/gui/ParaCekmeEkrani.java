@@ -5,18 +5,31 @@
  */
 package gui;
 
+import gui.ayarlar.ActionAyarlari;
+import gui.ayarlar.IDuzenleyici;
+import gui.ayarlar.TextAyarlari;
+
 /**
  *
  * @author mert.altuntas
  */
-public class ParaCekmeEkrani extends javax.swing.JFrame {
+public class ParaCekmeEkrani extends javax.swing.JFrame implements IDuzenleyici{
 
-    /**
-     * Creates new form ParaCekmeEkrani
-     */
+    private int cekilecekMiktar = 0;
     public ParaCekmeEkrani() {
         initComponents();
+        getEdits();
     }
+
+    @Override
+    public void getEdits() {
+        this.setLocationRelativeTo(null);
+        paraCekmeEkraniPanel.setFocusable(true);
+        TextAyarlari.setOnlyNumber(cekilecekMiktarText);
+        TextAyarlari.setMaxLimit(cekilecekMiktarText, 4);
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,22 +40,144 @@ public class ParaCekmeEkrani extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        paraCekmeEkraniPanel = new javax.swing.JPanel();
+        kullaniciAdSoyadLabel = new javax.swing.JLabel();
+        limitUyariLabel = new javax.swing.JLabel();
+        toplamBakiyenizLabel = new javax.swing.JLabel();
+        bakiyeLabel = new javax.swing.JLabel();
+        cekeceginizMiktarLabel = new javax.swing.JLabel();
+        cekilecekMiktarText = new javax.swing.JTextField();
+        paraCekButton = new javax.swing.JButton();
+        backIcon = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Money Withdraw - EncomBank");
+
+        paraCekmeEkraniPanel.setBackground(new java.awt.Color(153, 204, 255));
+
+        kullaniciAdSoyadLabel.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        kullaniciAdSoyadLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        kullaniciAdSoyadLabel.setText("Hi, (KULLANICI AD SOYAD)");
+
+        limitUyariLabel.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        limitUyariLabel.setText("You can withdraw 5000$ and below in one go.");
+
+        toplamBakiyenizLabel.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        toplamBakiyenizLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        toplamBakiyenizLabel.setText("Current Balance :");
+
+        bakiyeLabel.setFont(new java.awt.Font("Calibri", 1, 28)); // NOI18N
+        bakiyeLabel.setText("BAKİYE");
+
+        cekeceginizMiktarLabel.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        cekeceginizMiktarLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        cekeceginizMiktarLabel.setText("Enter Amount :");
+
+        cekilecekMiktarText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cekilecekMiktarTextKeyReleased(evt);
+            }
+        });
+
+        paraCekButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        paraCekButton.setText("Withdraw");
+        paraCekButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        backIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/backIcon.png"))); // NOI18N
+        backIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        backIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backIconMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout paraCekmeEkraniPanelLayout = new javax.swing.GroupLayout(paraCekmeEkraniPanel);
+        paraCekmeEkraniPanel.setLayout(paraCekmeEkraniPanelLayout);
+        paraCekmeEkraniPanelLayout.setHorizontalGroup(
+            paraCekmeEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paraCekmeEkraniPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(paraCekButton, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(277, 277, 277))
+            .addGroup(paraCekmeEkraniPanelLayout.createSequentialGroup()
+                .addGroup(paraCekmeEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(paraCekmeEkraniPanelLayout.createSequentialGroup()
+                        .addGap(155, 155, 155)
+                        .addComponent(limitUyariLabel))
+                    .addGroup(paraCekmeEkraniPanelLayout.createSequentialGroup()
+                        .addGap(186, 186, 186)
+                        .addComponent(cekeceginizMiktarLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(cekilecekMiktarText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(paraCekmeEkraniPanelLayout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addComponent(toplamBakiyenizLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(bakiyeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(paraCekmeEkraniPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(backIcon)
+                        .addGap(28, 28, 28)
+                        .addComponent(kullaniciAdSoyadLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+
+        paraCekmeEkraniPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {bakiyeLabel, cekilecekMiktarText});
+
+        paraCekmeEkraniPanelLayout.setVerticalGroup(
+            paraCekmeEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paraCekmeEkraniPanelLayout.createSequentialGroup()
+                .addGroup(paraCekmeEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(paraCekmeEkraniPanelLayout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(kullaniciAdSoyadLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(paraCekmeEkraniPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(backIcon)))
+                .addGap(29, 29, 29)
+                .addComponent(limitUyariLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(paraCekmeEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(paraCekmeEkraniPanelLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(toplamBakiyenizLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paraCekmeEkraniPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bakiyeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(paraCekmeEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cekeceginizMiktarLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cekilecekMiktarText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
+                .addComponent(paraCekButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(49, Short.MAX_VALUE))
+        );
+
+        paraCekmeEkraniPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {bakiyeLabel, limitUyariLabel, toplamBakiyenizLabel});
+
+        paraCekmeEkraniPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cekeceginizMiktarLabel, cekilecekMiktarText});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(paraCekmeEkraniPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(paraCekmeEkraniPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backIconMouseClicked
+       ActionAyarlari.setVisible(this, new HesapEkrani());
+    }//GEN-LAST:event_backIconMouseClicked
+
+    private void cekilecekMiktarTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cekilecekMiktarTextKeyReleased
+       this.cekilecekMiktar = TextAyarlari.checkTheKeyReleased(cekilecekMiktarText, 5000);
+       //System.out.println(cekilecekMiktar);
+    }//GEN-LAST:event_cekilecekMiktarTextKeyReleased
 
     /**
      * @param args the command line arguments
@@ -80,5 +215,14 @@ public class ParaCekmeEkrani extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel backIcon;
+    private javax.swing.JLabel bakiyeLabel;
+    private javax.swing.JLabel cekeceginizMiktarLabel;
+    private javax.swing.JTextField cekilecekMiktarText;
+    private javax.swing.JLabel kullaniciAdSoyadLabel;
+    private javax.swing.JLabel limitUyariLabel;
+    private javax.swing.JButton paraCekButton;
+    private javax.swing.JPanel paraCekmeEkraniPanel;
+    private javax.swing.JLabel toplamBakiyenizLabel;
     // End of variables declaration//GEN-END:variables
 }

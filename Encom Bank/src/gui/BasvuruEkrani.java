@@ -129,7 +129,7 @@ public class BasvuruEkrani extends javax.swing.JFrame implements IDuzenleyici{
                 backIconMouseClicked(evt);
             }
         });
-        basvuruEkraniPanel.add(backIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        basvuruEkraniPanel.add(backIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -8,6 +8,7 @@ package gui;
 import gui.ayarlar.ActionAyarlari;
 import gui.ayarlar.IDuzenleyici;
 import gui.ayarlar.TextAyarlari;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -73,6 +74,7 @@ public class ParaCekmeEkrani extends javax.swing.JFrame implements IDuzenleyici{
         cekeceginizMiktarLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         cekeceginizMiktarLabel.setText("Enter Amount :");
 
+        cekilecekMiktarText.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         cekilecekMiktarText.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 cekilecekMiktarTextKeyReleased(evt);
@@ -82,6 +84,11 @@ public class ParaCekmeEkrani extends javax.swing.JFrame implements IDuzenleyici{
         paraCekButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         paraCekButton.setText("Withdraw");
         paraCekButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        paraCekButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paraCekButtonActionPerformed(evt);
+            }
+        });
 
         backIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/backIcon.png"))); // NOI18N
         backIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -108,7 +115,7 @@ public class ParaCekmeEkrani extends javax.swing.JFrame implements IDuzenleyici{
                         .addGap(186, 186, 186)
                         .addComponent(cekeceginizMiktarLabel)
                         .addGap(18, 18, 18)
-                        .addComponent(cekilecekMiktarText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cekilecekMiktarText, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(paraCekmeEkraniPanelLayout.createSequentialGroup()
                         .addGap(78, 78, 78)
                         .addComponent(toplamBakiyenizLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -121,9 +128,6 @@ public class ParaCekmeEkrani extends javax.swing.JFrame implements IDuzenleyici{
                         .addComponent(kullaniciAdSoyadLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(59, Short.MAX_VALUE))
         );
-
-        paraCekmeEkraniPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {bakiyeLabel, cekilecekMiktarText});
-
         paraCekmeEkraniPanelLayout.setVerticalGroup(
             paraCekmeEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(paraCekmeEkraniPanelLayout.createSequentialGroup()
@@ -149,7 +153,7 @@ public class ParaCekmeEkrani extends javax.swing.JFrame implements IDuzenleyici{
                     .addComponent(cekilecekMiktarText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addComponent(paraCekButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         paraCekmeEkraniPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {bakiyeLabel, limitUyariLabel, toplamBakiyenizLabel});
@@ -178,6 +182,11 @@ public class ParaCekmeEkrani extends javax.swing.JFrame implements IDuzenleyici{
        this.cekilecekMiktar = TextAyarlari.checkTheKeyReleased(cekilecekMiktarText, 5000);
        //System.out.println(cekilecekMiktar);
     }//GEN-LAST:event_cekilecekMiktarTextKeyReleased
+
+    private void paraCekButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paraCekButtonActionPerformed
+       JOptionPane.showMessageDialog(this, "CONFIRMED\n" + "Amount you take : " + this.cekilecekMiktar + "$");
+       ActionAyarlari.setVisible(this, new HesapEkrani());
+    }//GEN-LAST:event_paraCekButtonActionPerformed
 
     /**
      * @param args the command line arguments

@@ -50,48 +50,59 @@ public class BasvuruEkrani extends javax.swing.JFrame implements IDuzenleyici{
         guvenlikCevapLabel = new javax.swing.JLabel();
         guvenlikCevapText = new javax.swing.JTextField();
         basvurButton = new javax.swing.JButton();
-        backButton = new javax.swing.JButton();
+        backIcon = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Register - EncomBank");
-        setPreferredSize(new java.awt.Dimension(684, 414));
 
         basvuruEkraniPanel.setBackground(new java.awt.Color(153, 204, 255));
+        basvuruEkraniPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         adSoyadLabel.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
         adSoyadLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         adSoyadLabel.setText("Name & Surname :");
+        basvuruEkraniPanel.add(adSoyadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 90, -1, 40));
 
         adSoyadText.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        basvuruEkraniPanel.add(adSoyadText, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 224, 40));
 
         tcNoLabel.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
         tcNoLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         tcNoLabel.setText("TC Identity :");
+        basvuruEkraniPanel.add(tcNoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 143, -1, 40));
 
         tcNoText.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        basvuruEkraniPanel.add(tcNoText, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 143, 224, 40));
 
         telNoText.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        basvuruEkraniPanel.add(telNoText, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 196, 224, 40));
 
         telNoLabel.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
         telNoLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         telNoLabel.setText("Phone Number :");
+        basvuruEkraniPanel.add(telNoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 196, -1, 40));
 
         kisiselBilgilerLabel1.setFont(new java.awt.Font("Calibri", 1, 22)); // NOI18N
         kisiselBilgilerLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         kisiselBilgilerLabel1.setText("Personal Informations");
+        basvuruEkraniPanel.add(kisiselBilgilerLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, 13, -1, 59));
 
         guvenlikSorusuLabel.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
         guvenlikSorusuLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         guvenlikSorusuLabel.setText("Security Question :");
+        basvuruEkraniPanel.add(guvenlikSorusuLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 254, -1, 40));
 
         guvenlikSorusu.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         guvenlikSorusu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "What is your pet's name?", "What is your favorite object?", "Who is your favorite superhero?", "Where do you want to live?" }));
+        basvuruEkraniPanel.add(guvenlikSorusu, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 254, 224, 40));
 
         guvenlikCevapLabel.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
         guvenlikCevapLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         guvenlikCevapLabel.setText("Answer :");
+        basvuruEkraniPanel.add(guvenlikCevapLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 307, -1, 40));
 
         guvenlikCevapText.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        basvuruEkraniPanel.add(guvenlikCevapText, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 307, 224, 40));
 
         basvurButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         basvurButton.setText("Register");
@@ -109,115 +120,30 @@ public class BasvuruEkrani extends javax.swing.JFrame implements IDuzenleyici{
                 basvurButtonActionPerformed(evt);
             }
         });
+        basvuruEkraniPanel.add(basvurButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 365, 104, 38));
 
-        backButton.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        backButton.setText("Back");
-        backButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        backButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButtonActionPerformed(evt);
+        backIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/backIcon.png"))); // NOI18N
+        backIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        backIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backIconMouseClicked(evt);
             }
         });
-
-        javax.swing.GroupLayout basvuruEkraniPanelLayout = new javax.swing.GroupLayout(basvuruEkraniPanel);
-        basvuruEkraniPanel.setLayout(basvuruEkraniPanelLayout);
-        basvuruEkraniPanelLayout.setHorizontalGroup(
-            basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(basvuruEkraniPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(basvuruEkraniPanelLayout.createSequentialGroup()
-                        .addComponent(backButton)
-                        .addGap(157, 157, 157)
-                        .addComponent(kisiselBilgilerLabel1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, basvuruEkraniPanelLayout.createSequentialGroup()
-                        .addGap(0, 120, Short.MAX_VALUE)
-                        .addGroup(basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(basvuruEkraniPanelLayout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addGroup(basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(basvuruEkraniPanelLayout.createSequentialGroup()
-                                        .addGroup(basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(adSoyadLabel)
-                                            .addComponent(tcNoLabel))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(tcNoText)
-                                            .addComponent(adSoyadText, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(basvuruEkraniPanelLayout.createSequentialGroup()
-                                        .addComponent(telNoLabel)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(telNoText, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(basvuruEkraniPanelLayout.createSequentialGroup()
-                                    .addComponent(guvenlikSorusuLabel)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(guvenlikSorusu, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(basvuruEkraniPanelLayout.createSequentialGroup()
-                                    .addComponent(guvenlikCevapLabel)
-                                    .addGap(18, 18, 18)
-                                    .addGroup(basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(basvurButton, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(guvenlikCevapText, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(180, 180, 180))))
-        );
-        basvuruEkraniPanelLayout.setVerticalGroup(
-            basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(basvuruEkraniPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(kisiselBilgilerLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
-                    .addGroup(basvuruEkraniPanelLayout.createSequentialGroup()
-                        .addComponent(backButton)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
-                .addGroup(basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(adSoyadLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(adSoyadText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
-                .addGroup(basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tcNoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tcNoText, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(telNoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(telNoText, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(guvenlikSorusuLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(guvenlikSorusu, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(basvuruEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(guvenlikCevapLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(guvenlikCevapText, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(basvurButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
-        );
-
-        basvuruEkraniPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {adSoyadLabel, adSoyadText});
+        basvuruEkraniPanel.add(backIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(basvuruEkraniPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(basvuruEkraniPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(basvuruEkraniPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(basvuruEkraniPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        this.setVisible(false); //giris ekranını kapat
-        new GirisEkrani().setVisible(true); //başvuru ekranına git
-    }//GEN-LAST:event_backButtonActionPerformed
 
     private void basvurButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_basvurButtonMouseEntered
         this.setBgFg(evt.getComponent());
@@ -239,6 +165,10 @@ public class BasvuruEkrani extends javax.swing.JFrame implements IDuzenleyici{
         JOptionPane.showMessageDialog(this, "Your registration has been accepted.");
         ActionAyarlari.setVisible(this, new GirisEkrani()); //dialogdan sonra anasayfaya dön
     }//GEN-LAST:event_basvurButtonActionPerformed
+
+    private void backIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backIconMouseClicked
+        ActionAyarlari.setVisible(this, new GirisEkrani());
+    }//GEN-LAST:event_backIconMouseClicked
 
     @Override
     public void getEdits() {
@@ -291,7 +221,7 @@ public class BasvuruEkrani extends javax.swing.JFrame implements IDuzenleyici{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel adSoyadLabel;
     private javax.swing.JTextField adSoyadText;
-    private javax.swing.JButton backButton;
+    private javax.swing.JLabel backIcon;
     private javax.swing.JButton basvurButton;
     private javax.swing.JPanel basvuruEkraniPanel;
     private javax.swing.JLabel guvenlikCevapLabel;

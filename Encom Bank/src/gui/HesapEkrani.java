@@ -149,6 +149,7 @@ public class HesapEkrani extends javax.swing.JFrame implements IDuzenleyici{
         hesapEkraniPanel.add(havaleIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 318, -1, -1));
 
         settingsIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/ayarlarIcon.png"))); // NOI18N
+        settingsIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         settingsIcon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 settingsIconMouseClicked(evt);
@@ -157,6 +158,7 @@ public class HesapEkrani extends javax.swing.JFrame implements IDuzenleyici{
         hesapEkraniPanel.add(settingsIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 30, -1, -1));
 
         logoutIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/logoutIcon.png"))); // NOI18N
+        logoutIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         logoutIcon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 logoutIconMouseClicked(evt);

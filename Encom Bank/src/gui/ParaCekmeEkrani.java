@@ -6,8 +6,12 @@
 package gui;
 
 import gui.ayarlar.ActionAyarlari;
+import gui.ayarlar.ButtonAyarlari;
 import gui.ayarlar.IDuzenleyici;
 import gui.ayarlar.TextAyarlari;
+import java.awt.Color;
+import java.awt.Component;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 /**
@@ -54,7 +58,7 @@ public class ParaCekmeEkrani extends javax.swing.JFrame implements IDuzenleyici{
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Money Withdraw - EncomBank");
 
-        paraCekmeEkraniPanel.setBackground(new java.awt.Color(153, 204, 255));
+        paraCekmeEkraniPanel.setBackground(new java.awt.Color(248, 222, 251));
 
         kullaniciAdSoyadLabel.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         kullaniciAdSoyadLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -74,7 +78,8 @@ public class ParaCekmeEkrani extends javax.swing.JFrame implements IDuzenleyici{
         cekeceginizMiktarLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         cekeceginizMiktarLabel.setText("Enter Amount :");
 
-        cekilecekMiktarText.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        cekilecekMiktarText.setFont(new java.awt.Font("Calibri", 1, 22)); // NOI18N
+        cekilecekMiktarText.setForeground(new java.awt.Color(153, 0, 204));
         cekilecekMiktarText.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 cekilecekMiktarTextKeyReleased(evt);
@@ -84,6 +89,14 @@ public class ParaCekmeEkrani extends javax.swing.JFrame implements IDuzenleyici{
         paraCekButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         paraCekButton.setText("Withdraw");
         paraCekButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        paraCekButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                paraCekButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                paraCekButtonMouseExited(evt);
+            }
+        });
         paraCekButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 paraCekButtonActionPerformed(evt);
@@ -153,7 +166,7 @@ public class ParaCekmeEkrani extends javax.swing.JFrame implements IDuzenleyici{
                     .addComponent(cekilecekMiktarText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addComponent(paraCekButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         paraCekmeEkraniPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {bakiyeLabel, limitUyariLabel, toplamBakiyenizLabel});
@@ -188,6 +201,22 @@ public class ParaCekmeEkrani extends javax.swing.JFrame implements IDuzenleyici{
        ActionAyarlari.setVisible(this, new HesapEkrani());
     }//GEN-LAST:event_paraCekButtonActionPerformed
 
+    private void paraCekButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paraCekButtonMouseEntered
+        this.setBgFg(evt.getComponent());
+    }//GEN-LAST:event_paraCekButtonMouseEntered
+
+    private void paraCekButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paraCekButtonMouseExited
+        this.setOriginalBgFg(evt.getComponent());
+    }//GEN-LAST:event_paraCekButtonMouseExited
+
+    private void setBgFg(Component c){
+        ButtonAyarlari.setBgFg((JButton)c, Color.BLACK, Color.WHITE);
+    }
+    
+    private void setOriginalBgFg(Component c){
+        ButtonAyarlari.setOriginalBgFg((JButton)c);
+    }
+    
     /**
      * @param args the command line arguments
      */

@@ -5,17 +5,40 @@
  */
 package gui;
 
+import gui.ayarlar.ActionAyarlari;
+import gui.ayarlar.ButtonAyarlari;
+import gui.ayarlar.IDuzenleyici;
+import gui.ayarlar.TextAyarlari;
+import java.awt.Color;
+import java.awt.Component;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author mert.altuntas
  */
-public class HavaleEkrani extends javax.swing.JFrame {
+public class HavaleEkrani extends javax.swing.JFrame implements IDuzenleyici{
 
     /**
      * Creates new form HavaleEkrani
      */
+    
+    private final String MUSTERI_NO_TEXT_ORIGINAL = "IBAN Number";
+    private int gonderilecekMiktar = 0;
     public HavaleEkrani() {
         initComponents();
+        getEdits();
+    }
+
+    @Override
+    public void getEdits() {
+        this.setLocationRelativeTo(null);
+        havaleEkraniPanel.setFocusable(true);
+        TextAyarlari.setOnlyNumber(gondereceginizMiktarText);
+        TextAyarlari.setMaxLimit(gondereceginizMiktarText, 5);
+        TextAyarlari.setOnlyNumber(musteriNoText);
+        musteriNoText.setText(MUSTERI_NO_TEXT_ORIGINAL);
     }
 
     /**
@@ -27,23 +50,208 @@ public class HavaleEkrani extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        havaleEkraniPanel = new javax.swing.JPanel();
+        kullaniciAdSoyadLabel = new javax.swing.JLabel();
+        limitUyariLabel = new javax.swing.JLabel();
+        toplamBakiyenizLabel = new javax.swing.JLabel();
+        bakiyeLabel = new javax.swing.JLabel();
+        gondereceginizMiktarLabel = new javax.swing.JLabel();
+        gondereceginizMiktarText = new javax.swing.JTextField();
+        havaleButton = new javax.swing.JButton();
+        backIcon = new javax.swing.JLabel();
+        havaleAlacakKisiLabel = new javax.swing.JLabel();
+        musteriNoText = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Money Transfers - EncomBank");
+
+        havaleEkraniPanel.setBackground(new java.awt.Color(214, 227, 188));
+
+        kullaniciAdSoyadLabel.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        kullaniciAdSoyadLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        kullaniciAdSoyadLabel.setText("Hi, (KULLANICI AD SOYAD)");
+
+        limitUyariLabel.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        limitUyariLabel.setText("You can transfer 20000$ and below in one go.");
+
+        toplamBakiyenizLabel.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        toplamBakiyenizLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        toplamBakiyenizLabel.setText("Current Balance :");
+
+        bakiyeLabel.setFont(new java.awt.Font("Calibri", 1, 28)); // NOI18N
+        bakiyeLabel.setText("BAKİYE");
+
+        gondereceginizMiktarLabel.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        gondereceginizMiktarLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        gondereceginizMiktarLabel.setText("Enter Amount :");
+
+        gondereceginizMiktarText.setFont(new java.awt.Font("Calibri", 1, 22)); // NOI18N
+        gondereceginizMiktarText.setForeground(new java.awt.Color(0, 102, 102));
+        gondereceginizMiktarText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                gondereceginizMiktarTextKeyReleased(evt);
+            }
+        });
+
+        havaleButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        havaleButton.setText("Transfer");
+        havaleButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        havaleButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                havaleButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                havaleButtonMouseExited(evt);
+            }
+        });
+        havaleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                havaleButtonActionPerformed(evt);
+            }
+        });
+
+        backIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/backIcon.png"))); // NOI18N
+        backIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        backIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backIconMouseClicked(evt);
+            }
+        });
+
+        havaleAlacakKisiLabel.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        havaleAlacakKisiLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        havaleAlacakKisiLabel.setText("Receiver IBAN :");
+
+        musteriNoText.setFont(new java.awt.Font("Calibri", 0, 22)); // NOI18N
+        musteriNoText.setForeground(new java.awt.Color(153, 153, 153));
+        musteriNoText.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                musteriNoTextFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                musteriNoTextFocusLost(evt);
+            }
+        });
+
+        javax.swing.GroupLayout havaleEkraniPanelLayout = new javax.swing.GroupLayout(havaleEkraniPanel);
+        havaleEkraniPanel.setLayout(havaleEkraniPanelLayout);
+        havaleEkraniPanelLayout.setHorizontalGroup(
+            havaleEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(havaleEkraniPanelLayout.createSequentialGroup()
+                .addGroup(havaleEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(havaleEkraniPanelLayout.createSequentialGroup()
+                        .addGap(155, 155, 155)
+                        .addComponent(limitUyariLabel))
+                    .addGroup(havaleEkraniPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(backIcon)
+                        .addGap(28, 28, 28)
+                        .addComponent(kullaniciAdSoyadLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(havaleEkraniPanelLayout.createSequentialGroup()
+                        .addGap(275, 275, 275)
+                        .addComponent(havaleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(havaleEkraniPanelLayout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(toplamBakiyenizLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(bakiyeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(havaleEkraniPanelLayout.createSequentialGroup()
+                        .addGap(189, 189, 189)
+                        .addGroup(havaleEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(havaleEkraniPanelLayout.createSequentialGroup()
+                                .addComponent(havaleAlacakKisiLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(musteriNoText, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(havaleEkraniPanelLayout.createSequentialGroup()
+                                .addComponent(gondereceginizMiktarLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(gondereceginizMiktarText)))))
+                .addContainerGap(70, Short.MAX_VALUE))
+        );
+        havaleEkraniPanelLayout.setVerticalGroup(
+            havaleEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(havaleEkraniPanelLayout.createSequentialGroup()
+                .addGroup(havaleEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(havaleEkraniPanelLayout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(kullaniciAdSoyadLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(havaleEkraniPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(backIcon)))
+                .addGap(29, 29, 29)
+                .addComponent(limitUyariLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(havaleEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(toplamBakiyenizLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bakiyeLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(havaleEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(gondereceginizMiktarLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(gondereceginizMiktarText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(havaleEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(havaleAlacakKisiLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(musteriNoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(havaleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(havaleEkraniPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(havaleEkraniPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void gondereceginizMiktarTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_gondereceginizMiktarTextKeyReleased
+        this.gonderilecekMiktar = TextAyarlari.checkTheKeyReleased(gondereceginizMiktarText, 20000);
+        //System.out.println(cekilecekMiktar);
+    }//GEN-LAST:event_gondereceginizMiktarTextKeyReleased
+
+    private void havaleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_havaleButtonActionPerformed
+        JOptionPane.showMessageDialog(this, "CONFIRMED\n" + "Money you have sent : " + this.gonderilecekMiktar + "$");
+        ActionAyarlari.setVisible(this, new HesapEkrani());
+    }//GEN-LAST:event_havaleButtonActionPerformed
+
+    private void backIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backIconMouseClicked
+        ActionAyarlari.setVisible(this, new HesapEkrani());
+    }//GEN-LAST:event_backIconMouseClicked
+
+    private void musteriNoTextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_musteriNoTextFocusGained
+        TextAyarlari.checkTheTextFocusGained(musteriNoText, MUSTERI_NO_TEXT_ORIGINAL);
+    }//GEN-LAST:event_musteriNoTextFocusGained
+
+    private void musteriNoTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_musteriNoTextFocusLost
+        TextAyarlari.checkTheTextFocusLost(musteriNoText);
+    }//GEN-LAST:event_musteriNoTextFocusLost
+
+    private void havaleButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_havaleButtonMouseEntered
+        this.setBgFg(evt.getComponent());
+    }//GEN-LAST:event_havaleButtonMouseEntered
+
+    private void havaleButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_havaleButtonMouseExited
+        this.setOriginalBgFg(evt.getComponent());
+    }//GEN-LAST:event_havaleButtonMouseExited
+
+    private void setBgFg(Component c){
+        ButtonAyarlari.setBgFg((JButton)c, Color.BLACK, Color.WHITE);
+    }
+    
+    private void setOriginalBgFg(Component c){
+        ButtonAyarlari.setOriginalBgFg((JButton)c);
+    }
     /**
      * @param args the command line arguments
      */
@@ -80,5 +288,16 @@ public class HavaleEkrani extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel backIcon;
+    private javax.swing.JLabel bakiyeLabel;
+    private javax.swing.JLabel gondereceginizMiktarLabel;
+    private javax.swing.JTextField gondereceginizMiktarText;
+    private javax.swing.JLabel havaleAlacakKisiLabel;
+    private javax.swing.JButton havaleButton;
+    private javax.swing.JPanel havaleEkraniPanel;
+    private javax.swing.JLabel kullaniciAdSoyadLabel;
+    private javax.swing.JLabel limitUyariLabel;
+    private javax.swing.JTextField musteriNoText;
+    private javax.swing.JLabel toplamBakiyenizLabel;
     // End of variables declaration//GEN-END:variables
 }

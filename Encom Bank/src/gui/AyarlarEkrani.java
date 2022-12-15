@@ -5,19 +5,31 @@
  */
 package gui;
 
+import gui.ayarlar.ActionAyarlari;
+import gui.ayarlar.IDuzenleyici;
+
 /**
  *
  * @author mert.altuntas
  */
-public class AyarlarEkrani extends javax.swing.JFrame {
+public class AyarlarEkrani extends javax.swing.JFrame implements IDuzenleyici{
 
     /**
      * Creates new form AyarlarEkrani
      */
     public AyarlarEkrani() {
         initComponents();
+        getEdits();
     }
 
+    @Override
+    public void getEdits() {
+        this.setLocationRelativeTo(null);
+        ayarlarPanel.setFocusable(true);
+    }
+
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,22 +39,125 @@ public class AyarlarEkrani extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        ayarlarPanel = new javax.swing.JPanel();
+        backIcon = new javax.swing.JLabel();
+        kullaniciAdSoyadLabel = new javax.swing.JLabel();
+        mesajTelNoLabel = new javax.swing.JLabel();
+        telNoText = new javax.swing.JTextField();
+        telNoDegistirIcon = new javax.swing.JLabel();
+        mesajSifreLabel = new javax.swing.JLabel();
+        sifreText = new javax.swing.JTextField();
+        sifreDegistirIcon = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Settings - EncomBank");
+
+        ayarlarPanel.setBackground(new java.awt.Color(153, 204, 255));
+
+        backIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/backIcon.png"))); // NOI18N
+        backIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        backIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backIconMouseClicked(evt);
+            }
+        });
+
+        kullaniciAdSoyadLabel.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        kullaniciAdSoyadLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        kullaniciAdSoyadLabel.setText("Hi, (KULLANICI AD SOYAD)");
+
+        mesajTelNoLabel.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        mesajTelNoLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        mesajTelNoLabel.setText("Your Phone Number :");
+
+        telNoText.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        telNoText.setForeground(new java.awt.Color(0, 153, 51));
+        telNoText.setEnabled(false);
+
+        telNoDegistirIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/updateTelIcon.png"))); // NOI18N
+        telNoDegistirIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        mesajSifreLabel.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        mesajSifreLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        mesajSifreLabel.setText("Your Password :");
+
+        sifreText.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        sifreText.setForeground(new java.awt.Color(0, 153, 51));
+        sifreText.setText("**************");
+        sifreText.setEnabled(false);
+
+        sifreDegistirIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/updateTelIcon.png"))); // NOI18N
+        sifreDegistirIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout ayarlarPanelLayout = new javax.swing.GroupLayout(ayarlarPanel);
+        ayarlarPanel.setLayout(ayarlarPanelLayout);
+        ayarlarPanelLayout.setHorizontalGroup(
+            ayarlarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ayarlarPanelLayout.createSequentialGroup()
+                .addGroup(ayarlarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ayarlarPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(backIcon)
+                        .addGap(28, 28, 28)
+                        .addComponent(kullaniciAdSoyadLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ayarlarPanelLayout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addGroup(ayarlarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ayarlarPanelLayout.createSequentialGroup()
+                                .addComponent(mesajSifreLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(sifreText, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(sifreDegistirIcon))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ayarlarPanelLayout.createSequentialGroup()
+                                .addComponent(mesajTelNoLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(telNoText, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(telNoDegistirIcon)))))
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+        ayarlarPanelLayout.setVerticalGroup(
+            ayarlarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ayarlarPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ayarlarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ayarlarPanelLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(kullaniciAdSoyadLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(backIcon))
+                .addGap(65, 65, 65)
+                .addGroup(ayarlarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(mesajTelNoLabel)
+                    .addComponent(telNoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(telNoDegistirIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(58, 58, 58)
+                .addGroup(ayarlarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(mesajSifreLabel)
+                    .addComponent(sifreText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sifreDegistirIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(114, Short.MAX_VALUE))
+        );
+
+        ayarlarPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {mesajTelNoLabel, telNoText});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(ayarlarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(ayarlarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backIconMouseClicked
+        ActionAyarlari.setVisible(this, new HesapEkrani());
+    }//GEN-LAST:event_backIconMouseClicked
 
     /**
      * @param args the command line arguments
@@ -80,5 +195,14 @@ public class AyarlarEkrani extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel ayarlarPanel;
+    private javax.swing.JLabel backIcon;
+    private javax.swing.JLabel kullaniciAdSoyadLabel;
+    private javax.swing.JLabel mesajSifreLabel;
+    private javax.swing.JLabel mesajTelNoLabel;
+    private javax.swing.JLabel sifreDegistirIcon;
+    private javax.swing.JTextField sifreText;
+    private javax.swing.JLabel telNoDegistirIcon;
+    private javax.swing.JTextField telNoText;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,7 +6,12 @@
 package gui;
 
 import gui.ayarlar.ActionAyarlari;
+import gui.ayarlar.ButtonAyarlari;
 import gui.ayarlar.IDuzenleyici;
+import java.awt.Color;
+import java.awt.Component;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -80,8 +85,18 @@ public class OdemelerEkrani extends javax.swing.JFrame implements IDuzenleyici{
         elektrikBorcu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         elektrikBorcu.setText("BORÇ");
 
+        elektrikOdeButton.setBackground(new java.awt.Color(255, 204, 255));
         elektrikOdeButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         elektrikOdeButton.setText("Pay Now");
+        elektrikOdeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        elektrikOdeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                elektrikOdeButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                elektrikOdeButtonMouseExited(evt);
+            }
+        });
         elektrikOdeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 elektrikOdeButtonActionPerformed(evt);
@@ -96,16 +111,36 @@ public class OdemelerEkrani extends javax.swing.JFrame implements IDuzenleyici{
         suBorcu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         suBorcu.setText("BORÇ");
 
+        suOdeButton.setBackground(new java.awt.Color(204, 204, 255));
         suOdeButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         suOdeButton.setText("Pay Now");
+        suOdeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        suOdeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                suOdeButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                suOdeButtonMouseExited(evt);
+            }
+        });
         suOdeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 suOdeButtonActionPerformed(evt);
             }
         });
 
+        internetOdeButton.setBackground(new java.awt.Color(255, 255, 204));
         internetOdeButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         internetOdeButton.setText("Pay Now");
+        internetOdeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        internetOdeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                internetOdeButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                internetOdeButtonMouseExited(evt);
+            }
+        });
         internetOdeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 internetOdeButtonActionPerformed(evt);
@@ -128,8 +163,18 @@ public class OdemelerEkrani extends javax.swing.JFrame implements IDuzenleyici{
         dogalgazBorcu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dogalgazBorcu.setText("BORÇ");
 
+        dogalgazOdeButton.setBackground(new java.awt.Color(204, 255, 204));
         dogalgazOdeButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         dogalgazOdeButton.setText("Pay Now");
+        dogalgazOdeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        dogalgazOdeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                dogalgazOdeButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                dogalgazOdeButtonMouseExited(evt);
+            }
+        });
         dogalgazOdeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dogalgazOdeButtonActionPerformed(evt);
@@ -229,21 +274,65 @@ public class OdemelerEkrani extends javax.swing.JFrame implements IDuzenleyici{
     }//GEN-LAST:event_backIconMouseClicked
 
     private void elektrikOdeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elektrikOdeButtonActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Electric bill payment successful.");
+        ActionAyarlari.setVisible(this, new HesapEkrani());
     }//GEN-LAST:event_elektrikOdeButtonActionPerformed
 
     private void suOdeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suOdeButtonActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Water bill payment successful.");
+        ActionAyarlari.setVisible(this, new HesapEkrani());
     }//GEN-LAST:event_suOdeButtonActionPerformed
 
     private void internetOdeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_internetOdeButtonActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Internet bill payment successful.");
+        ActionAyarlari.setVisible(this, new HesapEkrani());
     }//GEN-LAST:event_internetOdeButtonActionPerformed
 
     private void dogalgazOdeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dogalgazOdeButtonActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Natural Gas bill payment successful.");
+        ActionAyarlari.setVisible(this, new HesapEkrani());
     }//GEN-LAST:event_dogalgazOdeButtonActionPerformed
 
+    private void elektrikOdeButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_elektrikOdeButtonMouseEntered
+        this.setBgFg(evt.getComponent());
+    }//GEN-LAST:event_elektrikOdeButtonMouseEntered
+
+    private void elektrikOdeButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_elektrikOdeButtonMouseExited
+       this.setOriginalBgFg(evt.getComponent());
+    }//GEN-LAST:event_elektrikOdeButtonMouseExited
+
+    private void suOdeButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_suOdeButtonMouseEntered
+        this.setBgFg(evt.getComponent());
+    }//GEN-LAST:event_suOdeButtonMouseEntered
+
+    private void suOdeButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_suOdeButtonMouseExited
+        this.setOriginalBgFg(evt.getComponent());
+    }//GEN-LAST:event_suOdeButtonMouseExited
+
+    private void dogalgazOdeButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dogalgazOdeButtonMouseEntered
+        this.setBgFg(evt.getComponent());
+    }//GEN-LAST:event_dogalgazOdeButtonMouseEntered
+
+    private void dogalgazOdeButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dogalgazOdeButtonMouseExited
+        this.setOriginalBgFg(evt.getComponent());
+    }//GEN-LAST:event_dogalgazOdeButtonMouseExited
+
+    private void internetOdeButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_internetOdeButtonMouseEntered
+        this.setBgFg(evt.getComponent());
+    }//GEN-LAST:event_internetOdeButtonMouseEntered
+
+    private void internetOdeButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_internetOdeButtonMouseExited
+        this.setOriginalBgFg(evt.getComponent());
+    }//GEN-LAST:event_internetOdeButtonMouseExited
+
+    
+    private void setBgFg(Component c){
+        ButtonAyarlari.setBgFg((JButton)c, Color.BLACK, Color.WHITE);
+    }
+    
+    private void setOriginalBgFg(Component c){
+        ButtonAyarlari.setOriginalBgFg((JButton)c);
+    }
     /**
      * @param args the command line arguments
      */

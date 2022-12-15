@@ -17,7 +17,7 @@ public final class GirisEkrani extends javax.swing.JFrame implements IDuzenleyic
         initComponents();
         getEdits();
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -29,7 +29,8 @@ public final class GirisEkrani extends javax.swing.JFrame implements IDuzenleyic
         basvurButton = new javax.swing.JButton();
         soruLabel = new javax.swing.JLabel();
         girisButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        encomLogo = new javax.swing.JLabel();
+        sifremiUnuttumLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login - EncomBank");
@@ -100,15 +101,26 @@ public final class GirisEkrani extends javax.swing.JFrame implements IDuzenleyic
             }
         });
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/1encom.png"))); // NOI18N
+        encomLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        encomLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/1encom.png"))); // NOI18N
+
+        sifremiUnuttumLabel.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        sifremiUnuttumLabel.setForeground(new java.awt.Color(0, 0, 204));
+        sifremiUnuttumLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sifremiUnuttumLabel.setText("Forgot Password ?");
+        sifremiUnuttumLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        sifremiUnuttumLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sifremiUnuttumLabelMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout girisEkraniPanelLayout = new javax.swing.GroupLayout(girisEkraniPanel);
         girisEkraniPanel.setLayout(girisEkraniPanelLayout);
         girisEkraniPanelLayout.setHorizontalGroup(
             girisEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(girisEkraniPanelLayout.createSequentialGroup()
-                .addContainerGap(149, Short.MAX_VALUE)
+                .addGap(39, 39, 39)
                 .addGroup(girisEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(kimlikText, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sifreText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -117,9 +129,10 @@ public final class GirisEkrani extends javax.swing.JFrame implements IDuzenleyic
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(basvurButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(girisButton, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(hosgeldinizLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(160, 160, 160))
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(hosgeldinizLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sifremiUnuttumLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(encomLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(45, 45, 45))
         );
 
         girisEkraniPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {kimlikText, sifreText});
@@ -127,21 +140,23 @@ public final class GirisEkrani extends javax.swing.JFrame implements IDuzenleyic
         girisEkraniPanelLayout.setVerticalGroup(
             girisEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(girisEkraniPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
                 .addGap(21, 21, 21)
+                .addComponent(encomLogo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(hosgeldinizLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(kimlikText, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(sifreText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addComponent(sifremiUnuttumLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(girisButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(girisEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(soruLabel)
                     .addComponent(basvurButton))
-                .addGap(25, 25, 25))
+                .addContainerGap())
         );
 
         girisEkraniPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {kimlikText, sifreText});
@@ -227,6 +242,12 @@ public final class GirisEkrani extends javax.swing.JFrame implements IDuzenleyic
         ActionAyarlari.setVisible(this, new BasvuruEkrani());
     }//GEN-LAST:event_basvurButtonActionPerformed
 
+    private void sifremiUnuttumLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sifremiUnuttumLabelMouseClicked
+        SifreYenilemeEkrani sifreYenilemeEkrani = new SifreYenilemeEkrani();
+        ActionAyarlari.setVisible(this, sifreYenilemeEkrani);
+        sifreYenilemeEkrani.getEskiSifreText().setEnabled(false);
+    }//GEN-LAST:event_sifremiUnuttumLabelMouseClicked
+
     public static void main(String args[]) {
 
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -260,12 +281,13 @@ public final class GirisEkrani extends javax.swing.JFrame implements IDuzenleyic
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton basvurButton;
+    private javax.swing.JLabel encomLogo;
     private javax.swing.JButton girisButton;
     private javax.swing.JPanel girisEkraniPanel;
     private javax.swing.JLabel hosgeldinizLabel;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField kimlikText;
     private javax.swing.JPasswordField sifreText;
+    private javax.swing.JLabel sifremiUnuttumLabel;
     private javax.swing.JLabel soruLabel;
     // End of variables declaration//GEN-END:variables
 }

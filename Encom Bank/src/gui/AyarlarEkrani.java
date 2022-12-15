@@ -7,6 +7,9 @@ package gui;
 
 import gui.ayarlar.ActionAyarlari;
 import gui.ayarlar.IDuzenleyici;
+import gui.ayarlar.IconAyarlari;
+import gui.ayarlar.TextAyarlari;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,6 +29,9 @@ public class AyarlarEkrani extends javax.swing.JFrame implements IDuzenleyici{
     public void getEdits() {
         this.setLocationRelativeTo(null);
         ayarlarPanel.setFocusable(true);
+        TextAyarlari.setOnlyNumber(telNoText);
+        TextAyarlari.setMaxLimit(telNoText, 11);
+        
     }
 
     
@@ -76,6 +82,11 @@ public class AyarlarEkrani extends javax.swing.JFrame implements IDuzenleyici{
 
         telNoDegistirIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/updateTelIcon.png"))); // NOI18N
         telNoDegistirIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        telNoDegistirIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                telNoDegistirIconMouseClicked(evt);
+            }
+        });
 
         mesajSifreLabel.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         mesajSifreLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -88,6 +99,11 @@ public class AyarlarEkrani extends javax.swing.JFrame implements IDuzenleyici{
 
         sifreDegistirIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/updateTelIcon.png"))); // NOI18N
         sifreDegistirIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        sifreDegistirIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sifreDegistirIconMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout ayarlarPanelLayout = new javax.swing.GroupLayout(ayarlarPanel);
         ayarlarPanel.setLayout(ayarlarPanelLayout);
@@ -158,6 +174,26 @@ public class AyarlarEkrani extends javax.swing.JFrame implements IDuzenleyici{
     private void backIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backIconMouseClicked
         ActionAyarlari.setVisible(this, new HesapEkrani());
     }//GEN-LAST:event_backIconMouseClicked
+
+    private int clickCounter = 0;
+    private void telNoDegistirIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_telNoDegistirIconMouseClicked
+        if(this.clickCounter == 0){
+        telNoText.setEnabled(true);
+        IconAyarlari.changeIcon(telNoDegistirIcon, "updateTelIcon2");
+        clickCounter++;
+        }
+        else{
+            telNoText.setEnabled(false);
+            JOptionPane.showMessageDialog(this, "Your phone number has been changed.");
+            IconAyarlari.setOriginalIcon(telNoDegistirIcon);
+            clickCounter = 0;
+        }
+
+    }//GEN-LAST:event_telNoDegistirIconMouseClicked
+
+    private void sifreDegistirIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sifreDegistirIconMouseClicked
+        ActionAyarlari.setVisible(this, new SifreYenilemeEkrani());
+    }//GEN-LAST:event_sifreDegistirIconMouseClicked
 
     /**
      * @param args the command line arguments

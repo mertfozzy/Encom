@@ -156,6 +156,9 @@
               <Color id="Hand Cursor"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="telNoDegistirIconMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="mesajSifreLabel">
           <Properties>
@@ -187,6 +190,9 @@
               <Color id="Hand Cursor"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="sifreDegistirIconMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

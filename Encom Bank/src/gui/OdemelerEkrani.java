@@ -5,18 +5,30 @@
  */
 package gui;
 
+import gui.ayarlar.ActionAyarlari;
+import gui.ayarlar.IDuzenleyici;
+
 /**
  *
  * @author mert.altuntas
  */
-public class OdemelerEkrani extends javax.swing.JFrame {
+public class OdemelerEkrani extends javax.swing.JFrame implements IDuzenleyici{
 
     /**
      * Creates new form OdemelerEkrani
      */
     public OdemelerEkrani() {
         initComponents();
+        getEdits();
     }
+
+    @Override
+    public void getEdits() {
+        this.setLocationRelativeTo(null);
+        odemelerEkraniPanel.setFocusable(true);
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,22 +39,210 @@ public class OdemelerEkrani extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        odemelerEkraniPanel = new javax.swing.JPanel();
+        kullaniciAdSoyadLabel = new javax.swing.JLabel();
+        backIcon = new javax.swing.JLabel();
+        mesajElektrikLabel = new javax.swing.JLabel();
+        elektrikBorcu = new javax.swing.JLabel();
+        elektrikOdeButton = new javax.swing.JButton();
+        mesajSuLabel = new javax.swing.JLabel();
+        suBorcu = new javax.swing.JLabel();
+        suOdeButton = new javax.swing.JButton();
+        internetOdeButton = new javax.swing.JButton();
+        mesajInternetLabel = new javax.swing.JLabel();
+        internetBorcu = new javax.swing.JLabel();
+        mesajDogalgazLabel = new javax.swing.JLabel();
+        dogalgazBorcu = new javax.swing.JLabel();
+        dogalgazOdeButton = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Payments - EncomBank");
+
+        odemelerEkraniPanel.setBackground(new java.awt.Color(255, 207, 209));
+
+        kullaniciAdSoyadLabel.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        kullaniciAdSoyadLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        kullaniciAdSoyadLabel.setText("Hi, (KULLANICI AD SOYAD)");
+
+        backIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/iconlar/backIcon.png"))); // NOI18N
+        backIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        backIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backIconMouseClicked(evt);
+            }
+        });
+
+        mesajElektrikLabel.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        mesajElektrikLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        mesajElektrikLabel.setText("Your Current Electricity Bill Debt :");
+
+        elektrikBorcu.setFont(new java.awt.Font("Calibri", 1, 28)); // NOI18N
+        elektrikBorcu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        elektrikBorcu.setText("BORÇ");
+
+        elektrikOdeButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        elektrikOdeButton.setText("Pay Now");
+        elektrikOdeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                elektrikOdeButtonActionPerformed(evt);
+            }
+        });
+
+        mesajSuLabel.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        mesajSuLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        mesajSuLabel.setText("Your Current Water Bill Debt :");
+
+        suBorcu.setFont(new java.awt.Font("Calibri", 1, 28)); // NOI18N
+        suBorcu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        suBorcu.setText("BORÇ");
+
+        suOdeButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        suOdeButton.setText("Pay Now");
+        suOdeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                suOdeButtonActionPerformed(evt);
+            }
+        });
+
+        internetOdeButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        internetOdeButton.setText("Pay Now");
+        internetOdeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                internetOdeButtonActionPerformed(evt);
+            }
+        });
+
+        mesajInternetLabel.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        mesajInternetLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        mesajInternetLabel.setText("Your Current Internet Bill Debt :");
+
+        internetBorcu.setFont(new java.awt.Font("Calibri", 1, 28)); // NOI18N
+        internetBorcu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        internetBorcu.setText("BORÇ");
+
+        mesajDogalgazLabel.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        mesajDogalgazLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        mesajDogalgazLabel.setText("Your Current Gas Bill Debt :");
+
+        dogalgazBorcu.setFont(new java.awt.Font("Calibri", 1, 28)); // NOI18N
+        dogalgazBorcu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        dogalgazBorcu.setText("BORÇ");
+
+        dogalgazOdeButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        dogalgazOdeButton.setText("Pay Now");
+        dogalgazOdeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dogalgazOdeButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout odemelerEkraniPanelLayout = new javax.swing.GroupLayout(odemelerEkraniPanel);
+        odemelerEkraniPanel.setLayout(odemelerEkraniPanelLayout);
+        odemelerEkraniPanelLayout.setHorizontalGroup(
+            odemelerEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(odemelerEkraniPanelLayout.createSequentialGroup()
+                .addGroup(odemelerEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(odemelerEkraniPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(backIcon)
+                        .addGap(28, 28, 28)
+                        .addComponent(kullaniciAdSoyadLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(odemelerEkraniPanelLayout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addGroup(odemelerEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(odemelerEkraniPanelLayout.createSequentialGroup()
+                                .addComponent(mesajSuLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(suBorcu, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(suOdeButton))
+                            .addGroup(odemelerEkraniPanelLayout.createSequentialGroup()
+                                .addComponent(mesajElektrikLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(elektrikBorcu, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(elektrikOdeButton))
+                            .addGroup(odemelerEkraniPanelLayout.createSequentialGroup()
+                                .addComponent(mesajInternetLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(internetBorcu, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(internetOdeButton))
+                            .addGroup(odemelerEkraniPanelLayout.createSequentialGroup()
+                                .addComponent(mesajDogalgazLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(dogalgazBorcu, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(dogalgazOdeButton)))))
+                .addContainerGap(89, Short.MAX_VALUE))
+        );
+        odemelerEkraniPanelLayout.setVerticalGroup(
+            odemelerEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(odemelerEkraniPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(odemelerEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(odemelerEkraniPanelLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(kullaniciAdSoyadLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(backIcon))
+                .addGap(86, 86, 86)
+                .addGroup(odemelerEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(mesajElektrikLabel)
+                    .addComponent(elektrikBorcu)
+                    .addComponent(elektrikOdeButton))
+                .addGap(18, 18, 18)
+                .addGroup(odemelerEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(mesajSuLabel)
+                    .addComponent(suBorcu)
+                    .addComponent(suOdeButton))
+                .addGap(18, 18, 18)
+                .addGroup(odemelerEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(mesajDogalgazLabel)
+                    .addComponent(dogalgazBorcu)
+                    .addComponent(dogalgazOdeButton))
+                .addGap(18, 18, 18)
+                .addGroup(odemelerEkraniPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(mesajInternetLabel)
+                    .addComponent(internetBorcu)
+                    .addComponent(internetOdeButton))
+                .addContainerGap(108, Short.MAX_VALUE))
+        );
+
+        odemelerEkraniPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {elektrikBorcu, elektrikOdeButton, mesajElektrikLabel});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(odemelerEkraniPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(odemelerEkraniPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backIconMouseClicked
+        ActionAyarlari.setVisible(this, new HesapEkrani());
+    }//GEN-LAST:event_backIconMouseClicked
+
+    private void elektrikOdeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elektrikOdeButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_elektrikOdeButtonActionPerformed
+
+    private void suOdeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suOdeButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_suOdeButtonActionPerformed
+
+    private void internetOdeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_internetOdeButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_internetOdeButtonActionPerformed
+
+    private void dogalgazOdeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dogalgazOdeButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dogalgazOdeButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,5 +280,20 @@ public class OdemelerEkrani extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel backIcon;
+    private javax.swing.JLabel dogalgazBorcu;
+    private javax.swing.JButton dogalgazOdeButton;
+    private javax.swing.JLabel elektrikBorcu;
+    private javax.swing.JButton elektrikOdeButton;
+    private javax.swing.JLabel internetBorcu;
+    private javax.swing.JButton internetOdeButton;
+    private javax.swing.JLabel kullaniciAdSoyadLabel;
+    private javax.swing.JLabel mesajDogalgazLabel;
+    private javax.swing.JLabel mesajElektrikLabel;
+    private javax.swing.JLabel mesajInternetLabel;
+    private javax.swing.JLabel mesajSuLabel;
+    private javax.swing.JPanel odemelerEkraniPanel;
+    private javax.swing.JLabel suBorcu;
+    private javax.swing.JButton suOdeButton;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,5 +1,6 @@
 package gui;
 
+import database.DbConnection;
 import gui.ayarlar.ActionAyarlari;
 import gui.ayarlar.ButtonAyarlari;
 import gui.ayarlar.IDuzenleyici;
@@ -16,6 +17,8 @@ public final class GirisEkrani extends javax.swing.JFrame implements IDuzenleyic
     public GirisEkrani() {
         initComponents();
         getEdits();
+        
+        new DbConnection();
     }
     
     @SuppressWarnings("unchecked")

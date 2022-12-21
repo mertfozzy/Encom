@@ -5,12 +5,17 @@
  */
 package gui;
 
+import database.IBilgiController;
+import database.transactions.HesapBilgileri;
+import database.transactions.userRequest;
 import gui.ayarlar.ActionAyarlari;
 import gui.ayarlar.ButtonAyarlari;
+import gui.ayarlar.Dialogs;
 import gui.ayarlar.IDuzenleyici;
 import gui.ayarlar.TextAyarlari;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dialog;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
@@ -18,11 +23,14 @@ import javax.swing.JOptionPane;
  *
  * @author mertf
  */
-public class BasvuruEkrani extends javax.swing.JFrame implements IDuzenleyici{
+public class BasvuruEkrani extends javax.swing.JFrame implements IDuzenleyici, IBilgiController{
 
     /**
      * Creates new form BasvuruEkrani
      */
+    
+    private userRequest userRequestObject = null;
+    
     public BasvuruEkrani() {
         initComponents();
         getEdits();
@@ -162,8 +170,13 @@ public class BasvuruEkrani extends javax.swing.JFrame implements IDuzenleyici{
     }
     
     private void basvurButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_basvurButtonActionPerformed
-        JOptionPane.showMessageDialog(this, "Your registration has been accepted.");
-        ActionAyarlari.setVisible(this, new GirisEkrani()); //dialogdan sonra anasayfaya dön
+        if(this.bilgilergecerlimi()){
+            Dialogs.ozelMesajGoster(this, "Your registration has been accepted.");
+            ActionAyarlari.setVisible(this, new GirisEkrani()); //dialogdan sonra anasayfaya dön
+        } else {
+            Dialogs.bosOlamazMesajiGoster(this);
+        }
+        
     }//GEN-LAST:event_basvurButtonActionPerformed
 
     private void backIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backIconMouseClicked
@@ -179,6 +192,23 @@ public class BasvuruEkrani extends javax.swing.JFrame implements IDuzenleyici{
         TextAyarlari.setOnlyNumber(telNoText);
         TextAyarlari.setMaxLimit(tcNoText, 11);
         TextAyarlari.setMaxLimit(telNoText, 11);
+    }
+
+    public userRequest getUserRequestObject() {
+        if(this.userRequestObject == null){
+            userRequestObject = new userRequest();
+        }
+        return userRequestObject;
+    }
+
+    @Override
+    public boolean bilgilergecerlimi() {
+        return TextAyarlari.textAlanlariDolumu(basvuruEkraniPanel);
+    }
+
+    @Override
+    public HesapBilgileri gethesapBilgileri() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

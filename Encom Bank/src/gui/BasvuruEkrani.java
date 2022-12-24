@@ -171,14 +171,57 @@ public class BasvuruEkrani extends javax.swing.JFrame implements IDuzenleyici, I
     
     private void basvurButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_basvurButtonActionPerformed
         if(this.bilgilergecerlimi()){
-            Dialogs.ozelMesajGoster(this, "Your registration has been accepted.");
-            ActionAyarlari.setVisible(this, new GirisEkrani()); //dialogdan sonra anasayfaya dön
+            basvuruyugerceklestir();
+            
         } else {
             Dialogs.bosOlamazMesajiGoster(this);
         }
         
     }//GEN-LAST:event_basvurButtonActionPerformed
-
+    
+    private void basvuruyugerceklestir(){
+        
+        // kişisel bilgiler
+        this.getUserRequestObject().setAdSoyad(this.adSoyadText.getText().trim());
+        this.getUserRequestObject().setTcNo(this.tcNoText.getText());
+        this.getUserRequestObject().setTelNo(this.telNoText.getText());
+        
+        //guvenlik bilgileri
+        
+        this.getUserRequestObject().setGuvenlikSorusu(String.valueOf(this.guvenlikSorusu.getSelectedItem()));
+        this.getUserRequestObject().setGuvenlikCevap(this.guvenlikCevapText.getText().trim());
+        
+        //sistem tarafından verilecek bilgiler
+        this.getUserRequestObject().setMusteriNo(this.randomMusteriNoAl());
+        this.getUserRequestObject().setSifre(this.randomSifreAl());
+        
+        if(this.getUserRequestObject().basvuruOnaylandiMi()){
+            
+            Dialogs.ozelMesajGoster(this, "Your registration has been accepted."
+                    + "Customer No: " + this.getUserRequestObject().getMusteriNo()
+                    + "\n Password: " + this.getUserRequestObject().getSifre());
+            ActionAyarlari.setVisible(this, new GirisEkrani()); //dialogdan sonra anasayfaya dön
+        } else{
+            Dialogs.ozelMesajGoster(this, "Your registration has not been accepted.\n"
+                    + "Please check your informations");
+        }
+        
+    }
+    
+    private String randomMusteriNoAl(){
+    
+        String musterNo;
+        musterNo = String.valueOf(100000 + (int)(Math.random() * 9000000));
+        return musterNo;
+    }
+    
+    private String randomSifreAl(){
+    
+        String sifre;
+        
+        sifre = String.valueOf(1000 + (int)(Math.random() * 9000));
+        return sifre;
+    }
     private void backIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backIconMouseClicked
         ActionAyarlari.setVisible(this, new GirisEkrani());
     }//GEN-LAST:event_backIconMouseClicked

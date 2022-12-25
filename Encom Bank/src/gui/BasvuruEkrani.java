@@ -72,6 +72,11 @@ public class BasvuruEkrani extends javax.swing.JFrame implements IDuzenleyici, I
         basvuruEkraniPanel.add(adSoyadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 90, -1, 40));
 
         adSoyadText.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        adSoyadText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adSoyadTextActionPerformed(evt);
+            }
+        });
         basvuruEkraniPanel.add(adSoyadText, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 224, 40));
 
         tcNoLabel.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
@@ -198,7 +203,7 @@ public class BasvuruEkrani extends javax.swing.JFrame implements IDuzenleyici, I
         if(this.getUserRequestObject().basvuruOnaylandiMi()){
             
             Dialogs.ozelMesajGoster(this, "Your registration has been accepted."
-                    + "Customer No: " + this.getUserRequestObject().getMusteriNo()
+                    + "\nCustomer No: " + this.getUserRequestObject().getMusteriNo()
                     + "\n Password: " + this.getUserRequestObject().getSifre());
             ActionAyarlari.setVisible(this, new GirisEkrani()); //dialogdan sonra anasayfaya dön
         } else{
@@ -225,6 +230,10 @@ public class BasvuruEkrani extends javax.swing.JFrame implements IDuzenleyici, I
     private void backIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backIconMouseClicked
         ActionAyarlari.setVisible(this, new GirisEkrani());
     }//GEN-LAST:event_backIconMouseClicked
+
+    private void adSoyadTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adSoyadTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_adSoyadTextActionPerformed
 
     @Override
     public void getEdits() {

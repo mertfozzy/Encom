@@ -1,6 +1,6 @@
 package database;
 
-import java.sql.Statement;
+import java.beans.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -21,6 +21,7 @@ public class DbConnection {
     
     protected Connection connection = null;
     protected Statement statement = null;
+    
     
     public DbConnection() {
         String url = "jdbc:mysql://" + this.HOST + ":" + this.PORT + "/" + this.VERITABANI_ISMI;

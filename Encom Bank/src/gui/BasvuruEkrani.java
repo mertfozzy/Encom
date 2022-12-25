@@ -5,17 +5,12 @@
  */
 package gui;
 
-import database.IBilgiController;
-import database.transactions.HesapBilgileri;
-import database.transactions.userRequest;
 import gui.ayarlar.ActionAyarlari;
 import gui.ayarlar.ButtonAyarlari;
-import gui.ayarlar.Dialogs;
 import gui.ayarlar.IDuzenleyici;
 import gui.ayarlar.TextAyarlari;
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Dialog;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
@@ -23,14 +18,11 @@ import javax.swing.JOptionPane;
  *
  * @author mertf
  */
-public class BasvuruEkrani extends javax.swing.JFrame implements IDuzenleyici, IBilgiController{
+public class BasvuruEkrani extends javax.swing.JFrame implements IDuzenleyici{
 
     /**
      * Creates new form BasvuruEkrani
      */
-    
-    private userRequest userRequestObject = null;
-    
     public BasvuruEkrani() {
         initComponents();
         getEdits();
@@ -72,11 +64,6 @@ public class BasvuruEkrani extends javax.swing.JFrame implements IDuzenleyici, I
         basvuruEkraniPanel.add(adSoyadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 90, -1, 40));
 
         adSoyadText.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        adSoyadText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                adSoyadTextActionPerformed(evt);
-            }
-        });
         basvuruEkraniPanel.add(adSoyadText, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 224, 40));
 
         tcNoLabel.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
@@ -175,65 +162,13 @@ public class BasvuruEkrani extends javax.swing.JFrame implements IDuzenleyici, I
     }
     
     private void basvurButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_basvurButtonActionPerformed
-        if(this.bilgilergecerlimi()){
-            basvuruyugerceklestir();
-            
-        } else {
-            Dialogs.bosOlamazMesajiGoster(this);
-        }
-        
+        JOptionPane.showMessageDialog(this, "Your registration has been accepted.");
+        ActionAyarlari.setVisible(this, new GirisEkrani()); //dialogdan sonra anasayfaya dön
     }//GEN-LAST:event_basvurButtonActionPerformed
-    
-    private void basvuruyugerceklestir(){
-        
-        // kişisel bilgiler
-        this.getUserRequestObject().setAdSoyad(this.adSoyadText.getText().trim());
-        this.getUserRequestObject().setTcNo(this.tcNoText.getText());
-        this.getUserRequestObject().setTelNo(this.telNoText.getText());
-        
-        //guvenlik bilgileri
-        
-        this.getUserRequestObject().setGuvenlikSorusu(String.valueOf(this.guvenlikSorusu.getSelectedItem()));
-        this.getUserRequestObject().setGuvenlikCevap(this.guvenlikCevapText.getText().trim());
-        
-        //sistem tarafından verilecek bilgiler
-        this.getUserRequestObject().setMusteriNo(this.randomMusteriNoAl());
-        this.getUserRequestObject().setSifre(this.randomSifreAl());
-        
-        if(this.getUserRequestObject().basvuruOnaylandiMi()){
-            
-            Dialogs.ozelMesajGoster(this, "Your registration has been accepted."
-                    + "\nCustomer No: " + this.getUserRequestObject().getMusteriNo()
-                    + "\n Password: " + this.getUserRequestObject().getSifre());
-            ActionAyarlari.setVisible(this, new GirisEkrani()); //dialogdan sonra anasayfaya dön
-        } else{
-            Dialogs.ozelMesajGoster(this, "Your registration has not been accepted.\n"
-                    + "Please check your informations");
-        }
-        
-    }
-    
-    private String randomMusteriNoAl(){
-    
-        String musterNo;
-        musterNo = String.valueOf(100000 + (int)(Math.random() * 9000000));
-        return musterNo;
-    }
-    
-    private String randomSifreAl(){
-    
-        String sifre;
-        
-        sifre = String.valueOf(1000 + (int)(Math.random() * 9000));
-        return sifre;
-    }
+
     private void backIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backIconMouseClicked
         ActionAyarlari.setVisible(this, new GirisEkrani());
     }//GEN-LAST:event_backIconMouseClicked
-
-    private void adSoyadTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adSoyadTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_adSoyadTextActionPerformed
 
     @Override
     public void getEdits() {
@@ -244,23 +179,6 @@ public class BasvuruEkrani extends javax.swing.JFrame implements IDuzenleyici, I
         TextAyarlari.setOnlyNumber(telNoText);
         TextAyarlari.setMaxLimit(tcNoText, 11);
         TextAyarlari.setMaxLimit(telNoText, 11);
-    }
-
-    public userRequest getUserRequestObject() {
-        if(this.userRequestObject == null){
-            userRequestObject = new userRequest();
-        }
-        return userRequestObject;
-    }
-
-    @Override
-    public boolean bilgilergecerlimi() {
-        return TextAyarlari.textAlanlariDolumu(basvuruEkraniPanel);
-    }
-
-    @Override
-    public HesapBilgileri gethesapBilgileri() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

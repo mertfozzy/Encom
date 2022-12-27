@@ -1,8 +1,10 @@
 package gui.ayarlar;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
@@ -90,6 +92,20 @@ public class TextAyarlari {
            return amount;
         }
         return 0;
+    }
+    
+    public static boolean textAlanlariDolumu(JPanel panel){
+        Component[] componets = panel.getComponents();
+        for (Component c:componets){
+            if(c instanceof JTextField){
+                JTextField textField = (JTextField)c;
+                if(textField.getText().trim().equals("") && textField.isEnabled()){
+                    return false;
+                }
+            }
+        }
+        
+        return true;
     }
     
     

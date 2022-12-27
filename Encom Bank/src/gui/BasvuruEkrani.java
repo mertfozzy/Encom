@@ -5,8 +5,12 @@
  */
 package gui;
 
+import database.IBilgiController;
+import database.transactions.HesapBilgileri;
+import database.transactions.KullaniciBasvuru;
 import gui.ayarlar.ActionAyarlari;
 import gui.ayarlar.ButtonAyarlari;
+import gui.ayarlar.Dialogs;
 import gui.ayarlar.IDuzenleyici;
 import gui.ayarlar.TextAyarlari;
 import java.awt.Color;
@@ -18,16 +22,45 @@ import javax.swing.JOptionPane;
  *
  * @author mertf
  */
-public class BasvuruEkrani extends javax.swing.JFrame implements IDuzenleyici{
+public class BasvuruEkrani extends javax.swing.JFrame implements IDuzenleyici, IBilgiController{
 
-    /**
-     * Creates new form BasvuruEkrani
-     */
+    private KullaniciBasvuru kullaniciBasvuruObject = null;
+    
     public BasvuruEkrani() {
         initComponents();
         getEdits();
     }
 
+        @Override
+    public void getEdits() {
+        this.setLocationRelativeTo(null); //ekran ortada
+        basvuruEkraniPanel.setFocusable(true); //fokus ayar
+        //TextAyarlari.setOnlyAlphabetic(adSoyadText);
+        TextAyarlari.setOnlyNumber(tcNoText);
+        TextAyarlari.setOnlyNumber(telNoText);
+        TextAyarlari.setMaxLimit(tcNoText, 11);
+        TextAyarlari.setMaxLimit(telNoText, 11);
+    }
+
+    public KullaniciBasvuru getKullaniciBasvuruObject() {
+        if(this.kullaniciBasvuruObject == null){
+            kullaniciBasvuruObject = new KullaniciBasvuru();
+        }
+        return kullaniciBasvuruObject;
+    }
+
+    @Override
+    public boolean bilgilerGecerliMi() {
+        return TextAyarlari.textAlanlariDolumu(basvuruEkraniPanel);
+    }
+
+    @Override
+    public HesapBilgileri getHesapBilgileri() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -162,26 +195,19 @@ public class BasvuruEkrani extends javax.swing.JFrame implements IDuzenleyici{
     }
     
     private void basvurButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_basvurButtonActionPerformed
-        JOptionPane.showMessageDialog(this, "Your registration has been accepted.");
-        ActionAyarlari.setVisible(this, new GirisEkrani()); //dialogdan sonra anasayfaya dön
+        if(this.bilgilerGecerliMi()){
+            Dialogs.ozelMesajGoster(this, "Your registration has been accepted!");
+            ActionAyarlari.setVisible(this, new GirisEkrani());
+        }else{
+            Dialogs.bosOlamazMesajiGoster(this);
+        }
+        
     }//GEN-LAST:event_basvurButtonActionPerformed
 
     private void backIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backIconMouseClicked
         ActionAyarlari.setVisible(this, new GirisEkrani());
     }//GEN-LAST:event_backIconMouseClicked
 
-    @Override
-    public void getEdits() {
-        this.setLocationRelativeTo(null); //ekran ortada
-        basvuruEkraniPanel.setFocusable(true); //fokus ayar
-        TextAyarlari.setOnlyAlphabetic(adSoyadText);
-        TextAyarlari.setOnlyNumber(tcNoText);
-        TextAyarlari.setOnlyNumber(telNoText);
-        TextAyarlari.setMaxLimit(tcNoText, 11);
-        TextAyarlari.setMaxLimit(telNoText, 11);
-    }
-
-    
     
     /**
      * @param args the command line arguments

@@ -196,14 +196,48 @@ public class BasvuruEkrani extends javax.swing.JFrame implements IDuzenleyici, I
     
     private void basvurButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_basvurButtonActionPerformed
         if(this.bilgilerGecerliMi()){
-            Dialogs.ozelMesajGoster(this, "Your registration has been accepted!");
-            ActionAyarlari.setVisible(this, new GirisEkrani());
+            this.basvuruyuGerceklestir();
         }else{
             Dialogs.bosOlamazMesajiGoster(this);
         }
         
     }//GEN-LAST:event_basvurButtonActionPerformed
 
+    private void basvuruyuGerceklestir(){
+        
+        this.getKullaniciBasvuruObject().setAdSoyad(this.adSoyadText.getText().trim());
+        this.getKullaniciBasvuruObject().setTcNo(this.tcNoText.getText().trim());
+        this.getKullaniciBasvuruObject().setTelNo(this.telNoText.getText().trim());
+        this.getKullaniciBasvuruObject().setGuvenlikSorusu(String.valueOf(this.guvenlikSorusu.getSelectedItem()));
+        this.getKullaniciBasvuruObject().setGuvenlikCevap(this.guvenlikCevapText.getText().trim());
+        
+        this.getKullaniciBasvuruObject().setMusteriNo(this.randomMusteriNoAl());
+        this.getKullaniciBasvuruObject().setSifre(this.randomSifreAl());
+        
+        if(this.getKullaniciBasvuruObject().basvuruOnaylandiMi()){
+            Dialogs.ozelMesajGoster(this, "Your registration has been accepted!\n"
+            + "Customer Number : " + this.getKullaniciBasvuruObject().getMusteriNo()
+            + "\nPassword : " + this.getKullaniciBasvuruObject().getSifre());
+            ActionAyarlari.setVisible(this, new GirisEkrani());
+        }else{
+            Dialogs.ozelMesajGoster(this, "Registiration is not complete..\n"
+            + "Please check your fields!");
+        }
+        
+    }
+    
+    private String randomMusteriNoAl(){
+        String musteriNo;
+        musteriNo = String.valueOf(100000 + (int) (Math.random() * 9000000));
+        return musteriNo;
+    }
+    
+    private String randomSifreAl(){
+        String sifre;
+        sifre = String.valueOf(1000 + (int) (Math.random() * 9000));
+        return sifre;
+    }
+    
     private void backIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backIconMouseClicked
         ActionAyarlari.setVisible(this, new GirisEkrani());
     }//GEN-LAST:event_backIconMouseClicked

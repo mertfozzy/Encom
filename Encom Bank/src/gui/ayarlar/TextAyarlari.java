@@ -80,6 +80,11 @@ public class TextAyarlari {
         });
     }
         
+    public static boolean uzunlukSundanKucukMu(int length, String str){
+        return (str.length() < length);
+    }
+        
+        
     public static int checkTheKeyReleased(JTextField textField, int moneyLimit) {
                 //kullanıcı 9999 girerse 5000 yap
         String text = textField.getText();

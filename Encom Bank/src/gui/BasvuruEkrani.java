@@ -228,7 +228,9 @@ public class BasvuruEkrani extends javax.swing.JFrame implements IDuzenleyici, I
     
     private String randomMusteriNoAl(){
         String musteriNo;
-        musteriNo = String.valueOf(100000 + (int) (Math.random() * 9000000));
+        do{
+            musteriNo = String.valueOf(100000 + (int) (Math.random() * 9000000));
+        }while(this.getKullaniciBasvuruObject().musteriNoTablodaVarMi());
         return musteriNo;
     }
     

@@ -3,6 +3,7 @@ package database.transactions;
 
 import database.DbConnection;
 import database.IBilgiController;
+import gui.ayarlar.TextAyarlari;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -66,6 +67,20 @@ public class KullaniciBasvuru extends DbConnection implements IBilgiController{
         
     }
 
+    public boolean musteriNoTablodaVarMi(){
+        String query = "SELECT musteri_no FROM kullanicilar WHERE musteri_no = '" + this.musteriNo + "'";
+        try {
+            super.statement = super.connection.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+            while(rs.next()){
+                return true;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }
+    
     @Override
     public boolean bilgilerGecerliMi() {
         return !(this.adSoyad == null
@@ -75,6 +90,8 @@ public class KullaniciBasvuru extends DbConnection implements IBilgiController{
                 || this.guvenlikCevap == null
                 || this.musteriNo == null
                 || this.sifre == null
+                || TextAyarlari.uzunlukSundanKucukMu(11, this.tcNo)
+                || TextAyarlari.uzunlukSundanKucukMu(11, this.telNo)
                 );
     }
 

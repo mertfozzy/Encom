@@ -126,7 +126,7 @@ public class BasvuruEkrani extends javax.swing.JFrame implements IDuzenleyici, I
         basvuruEkraniPanel.add(guvenlikSorusuLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 254, -1, 40));
 
         guvenlikSorusu.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        guvenlikSorusu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "What is your pet's name?", "What is your favorite object?", "Who is your favorite superhero?", "Where do you want to live?" }));
+        guvenlikSorusu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "What is your pet name?", "What is your favorite object?", "Who is your favorite superhero?", "Where do you want to live?" }));
         basvuruEkraniPanel.add(guvenlikSorusu, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 254, 224, 40));
 
         guvenlikCevapLabel.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N

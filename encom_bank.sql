@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 27, 2022 at 06:41 PM
+-- Generation Time: Dec 29, 2022 at 01:40 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -45,7 +45,8 @@ CREATE TABLE `kullanicilar` (
 INSERT INTO `kullanicilar` (`kullanici_id`, `ad_soyad`, `tc_no`, `tel_no`, `guvenlik_sorusu`, `guvenlik_cevap`, `musteri_no`, `sifre`) VALUES
 (1, 'Mert Altuntaş', '33593258862', '05435426330', 'Who is your favorite superhero?', 'Superman', '6789745', '6800'),
 (2, 'Mercan Gamze Altuntaş', '54574560040', '05452054452', 'Where do you want to live?', 'cekmekoy', '8857868', '8186'),
-(3, 'Alperen Demirtürkoğlu', '21213234345', '54765374882', 'Where do you want to live?', 'RASATHANE', '7300594', '1162');
+(3, 'Alperen Demirtürkoğlu', '21213234345', '54765374882', 'Where do you want to live?', 'RASATHANE', '7300594', '1162'),
+(4, 'Gökçe Aydın', '36568975512', '05522020227', 'What is your pet name?', 'Bulut', '4619716', '2831');
 
 -- --------------------------------------------------------
 
@@ -110,7 +111,7 @@ ALTER TABLE `kullanici_faturalar`
 -- AUTO_INCREMENT for table `kullanicilar`
 --
 ALTER TABLE `kullanicilar`
-  MODIFY `kullanici_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `kullanici_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `kullanici_bakiye`

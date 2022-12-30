@@ -56,7 +56,7 @@ public class BasvuruEkrani extends javax.swing.JFrame implements IDuzenleyici, I
 
     @Override
     public HesapBilgileri getHesapBilgileri() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return HesapBilgileri.getInstance();
     }
     
     

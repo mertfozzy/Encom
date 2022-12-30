@@ -1,16 +1,22 @@
 package gui;
 
 import database.DbConnection;
+import database.IBilgiController;
+import database.transactions.HesapBilgileri;
+import database.transactions.KullaniciGiris;
 import gui.ayarlar.ActionAyarlari;
 import gui.ayarlar.ButtonAyarlari;
+import gui.ayarlar.Dialogs;
 import gui.ayarlar.IDuzenleyici;
 import gui.ayarlar.TextAyarlari;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JButton;
 
-public final class GirisEkrani extends javax.swing.JFrame implements IDuzenleyici {
+public final class GirisEkrani extends javax.swing.JFrame implements IDuzenleyici, IBilgiController {
 
+    private KullaniciGiris kullaniciGirisObject = null;
+    
     private final String KIMLIK_TEXT_ORIGINAL = "T.C. Identity / Customer ID";
     private final String SIFRE_TEXT_ORIGINAL = "************";
 
@@ -189,6 +195,26 @@ public final class GirisEkrani extends javax.swing.JFrame implements IDuzenleyic
         
     }
 
+    @Override
+    public boolean bilgilerGecerliMi() {
+        return !(this.kimlikText.getText().equals(this.KIMLIK_TEXT_ORIGINAL)
+                || String.valueOf(this.sifreText.getPassword()).equals(this.SIFRE_TEXT_ORIGINAL)) ;
+    }
+
+    @Override
+    public HesapBilgileri getHesapBilgileri() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public KullaniciGiris getKullaniciGirisObject() {
+        if(this.kullaniciGirisObject == null){
+            kullaniciGirisObject = new KullaniciGiris();
+        }
+        return kullaniciGirisObject;
+    }
+    
+    
+
     private Color originalBackgroundColor;
 
     private void girisButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_girisButtonMouseEntered
@@ -234,9 +260,30 @@ public final class GirisEkrani extends javax.swing.JFrame implements IDuzenleyic
     }//GEN-LAST:event_sifreTextFocusLost
 
     private void girisButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_girisButtonActionPerformed
-       ActionAyarlari.setVisible(this, new HesapEkrani());
+       //ActionAyarlari.setVisible(this, new HesapEkrani());
+        if(this.bilgilerGecerliMi()){
+            String musteriKimlik = this.kimlikText.getText().trim();
+            String sifre = String.valueOf(this.sifreText.getPassword());
+            this.girisYap(musteriKimlik, sifre);
+        }else{
+            Dialogs.bosOlamazMesajiGoster(this);
+        }
     }//GEN-LAST:event_girisButtonActionPerformed
 
+    private void girisYap(String musteriKimlik, String sifre){
+        
+        this.getKullaniciGirisObject().setMusteriKimlik(musteriKimlik);
+        this.getKullaniciGirisObject().setSifre(sifre);
+        
+        if(getKullaniciGirisObject().girisBilgileriDogruMu()){
+            ActionAyarlari.setVisible(this, new HesapEkrani());
+        }else{
+            Dialogs.ozelMesajGoster(this, "Login credentials incorrect.\n" + 
+                    "Please check fields.");
+        }
+        
+    }
+    
     private void basvurButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_basvurButtonActionPerformed
         /*
         this.setVisible(false); //giris ekranını kapat

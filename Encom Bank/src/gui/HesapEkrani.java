@@ -1,6 +1,8 @@
 
 package gui;
 
+import database.IBilgiController;
+import database.transactions.HesapBilgileri;
 import gui.ayarlar.ActionAyarlari;
 import gui.ayarlar.ButtonAyarlari;
 import gui.ayarlar.IDuzenleyici;
@@ -10,12 +12,14 @@ import java.awt.Component;
 import javax.swing.JButton;
 
 
-public class HesapEkrani extends javax.swing.JFrame implements IDuzenleyici{
+public class HesapEkrani extends javax.swing.JFrame implements IDuzenleyici, IBilgiController{
 
     
     public HesapEkrani() {
         initComponents();
         getEdits();
+        System.out.println(getHesapBilgileri().getAdSoyad());
+        System.out.println("Elektrik fatura : " + getHesapBilgileri().getElektrikFaturasi());
     }
 
     /**
@@ -256,6 +260,16 @@ public class HesapEkrani extends javax.swing.JFrame implements IDuzenleyici{
     public void getEdits() {
         this.setLocationRelativeTo(null); //ekran ortada
         hesapEkraniPanel.setFocusable(true);
+    }
+
+    @Override
+    public boolean bilgilerGecerliMi() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public HesapBilgileri getHesapBilgileri() {
+        return HesapBilgileri.getInstance();
     }
 
     
